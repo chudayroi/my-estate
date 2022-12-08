@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-sm-2 facility">
+		<a href="http://xembaomoi.com/view/Thong-tin-thoi-tiet-4.html"><i class="glyphicon glyphicon-certificate"></i>Thời tiết</a>
+	</div>
+	<div class="col-sm-2 facility">
+		<a href="http://diaocdongduong.com/tienich/chungkhoan/mod_chungkhoan.php"><i class="glyphicon glyphicon-signal"></i> Chứng khoán</a>
+	</div>
+	<div class="col-sm-2 facility">
+		<a href="http://diaocdongduong.com/tienich/tygia/mod_ngoaite.php"><i class="glyphicon glyphicon-usd"> </i>Ngoại tệ</a>
+	</div>
+	<div class="col-sm-2 facility">
+		<a href="http://xembaomoi.com/view/Thong-tin-gia-vang-5.html"><i class="glyphicon glyphicon-star"></i> Già Vàng</a>
+	</div>
+	<div class="col-sm-2 facility">
+		<a href="#"><i class="glyphicon glyphicon-link"></i> Link Web</a>
+	</div>
+	<span class="process" >Loading</span>
+</div>
+<!--End .row-->

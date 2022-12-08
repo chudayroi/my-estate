@@ -1,0 +1,22 @@
+<div class="page-first">
+	         <div   class="arrowLine1 "><span class="title-page-first"></span></div>
+	         
+		<div class="hvr-wobble-horizontal">
+	         <div   class="arrowLine">
+	         <a href="<?php echo Asset('tintuc'); ?>"><span class="title-page-first">Tin Tức</span></a>
+	         </div>
+	         <div class="triangle_left"></div>
+         </div>
+         <?php if(!empty($data_category)): ?>
+         <div class="hvr-wobble-horizontal">
+	         <div class="triangle_left1"></div>
+	         <?php if(strlen($data_category->title)>9): ?>
+	         <div class="arrowLine2"><a href="<?php echo Asset('tintuc'); ?>/<?php echo $data_category->title; ?>"><span class="title-page-current"><?php echo $data_category->name; ?></span></a></div>
+	         <?php else: ?>
+	         <div class="arrowLine"><a href="<?php echo Asset('tintuc'); ?>/<?php echo $data_category->title; ?>"><span class="title-page-current"><?php echo $data_category->name; ?></span></a></div>
+	         <?php endif; ?>
+	         <div class="triangle_left"></div>
+         </div>
+         <?php endif; ?>
+ </div>
+   

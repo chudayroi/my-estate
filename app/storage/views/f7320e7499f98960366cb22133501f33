@@ -1,0 +1,10 @@
+<div class="row batdongsantinhtp ">
+		<?php foreach($citytag as $city): ?>
+      <div class="col-sm-2 link-batdongsantinhtp ">
+         <a class="" id="btn-news-categoty-top" href="<?php echo Asset('bat-dong-san'); ?><?php echo '/'; ?><?php echo $city['title']; ?>">
+         <span class="viewed-name"><?php echo $city['name']; ?></span>
+         </a>
+      </div>
+   		<?php endforeach; ?>
+     
+   </div>

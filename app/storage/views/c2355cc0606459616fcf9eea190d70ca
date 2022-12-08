@@ -1,0 +1,94 @@
+<?php $__env->startSection('content'); ?>
+<div class="container">
+
+      
+   <div class="row ">
+      <div class="col-sm-9 user-mylist">
+      <div class='col-sm-12 category-batdongsannoibat'>
+      <span class='span-batdongsannoibat'>Danh Sách User</span>
+   </div>
+        <?php if(!empty($user_list)): ?>
+        <?php $i=0;?>
+        <?php foreach($user_list as $product): ?>
+        <?php $i++;?>
+
+        <div class="row mylist-user" id="mylist-user<?php echo $product['id']; ?>">
+        <div class="col-sm-1 checkbox-user">
+          <input name="checkbox" id="checkbox" value="1" type="checkbox" data-toggle="tooltip" data-placement="right" title="Chọn">
+        </div>
+          <div class="col-sm-3 user_content" id="user_email">
+            <a href="<?php echo Asset('user'); ?>/<?php echo $product['id']; ?>"  class="myist-image-a" id="myist-image-a1">
+                <?php echo $product['email']; ?>
+
+            </a>
+          </div>
+          <div class="col-sm-1 user_content" id="user_firstname">
+                <?php echo $product['first_name']; ?>
+
+          </div>
+           <div class="col-sm-1 user_content" id="user_lastname">
+                <?php echo $product['last_name']; ?>
+
+          </div>
+              
+              <div class="col-sm-1 user_conttent" id="user-edit">
+                  <a class="mylist-action-sub" id="edit<?php echo $i; ?>" title="Sửa"data-toggle="tooltip" data-placement="right" title="Sửa"  href="<?php echo Asset('user'); ?>/edit/<?php echo $product['id']; ?>"><i class="glyphicon glyphicon-edit"></i></a>
+              </div>
+              <div class="col-sm-1 user_conttent" id="user-delete">
+                    <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#modal<?php echo $product['id']; ?>" id="<?php echo $product['id']; ?>" title="Xóa" title="Xóa" ><i class="glyphicon glyphicon-trash icon1"></i></button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal<?php echo $product['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Delete</h4>
+                          </div>
+                          <div class="modal-body">
+                            Bạn có chắc muốn xóa Tin này?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Không</button>
+                            <button type="button" class="btn btn-info btn-delete" id="<?php echo $product['id']; ?>">Có</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <!--End modal-->
+              </div>
+        </div> <!--End news-mylist-item-->
+
+          <?php endforeach; ?>
+          <?php endif; ?>
+    
+      </div><!--End .news-myist-->
+
+      <!--End .main-content-->
+      <div class="col-sm-3 side-bar">
+         <?php echo $__env->make('category.search-sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.tintucnoibat', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.batdongsanxemnhieunhat', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      </div>
+      <!--End .side-bar-->
+   </div>
+   <!--End .row-->
+</div>
+<!--End .container-->
+<script type="text/javascript" >
+$('.btn-delete').click(function(event){
+   var id= this.id;
+    $('#mylist-item'+id).remove();
+     $.ajax({
+                       url : "<?php echo asset('tintuc/delete'); ?>",
+                       type : 'post',
+                       dataType: 'json',
+                       data: {id:id},
+                       success : function (result){
+                        //alert(123);
+                       }//End success
+    });
+  });  
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('tintuc.basic', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

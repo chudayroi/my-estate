@@ -1,0 +1,135 @@
+<?php $__env->startSection('css'); ?>
+<?php echo HTML::style('assets/css/dangtin.css');; ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('slider'); ?>
+<?php echo $__env->make('template.slider', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+<div class="container">
+         <div class="row">
+            <div class="col-sm-9 content-detail">
+               <?php echo $__env->make('template.tienich', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+               <div class="row links">
+                   
+                  <i class="glyphicon glyphicon-play icon"></i>
+                  <a href="<?php echo Asset('nhadat'); ?>"><span class="level-1">Nhà Đất</span></a>
+                  <i class="glyphicon glyphicon-play icon"></i>
+                  <a href="<?php echo Asset('nhadat'); ?>/<?php echo $products->city_title; ?>"><span class="level-2" ><?php echo $products->city; ?></span></a>
+               </div><!--end .links-->
+               
+
+               
+               <div class="row detail">
+                  <?php if(!empty($products)): ?>
+                  <div class="panel panel-default">
+                       <!-- Default panel contents -->
+                        <div class="panel-heading">
+                           <i class="glyphicon glyphicon-book icon-flag"></i>
+                           <span class="content-title"> <?php echo $products->title; ?></span>
+                        </div>
+                       <div class="panel-body">
+                         <p><?php echo $products->content; ?></p>
+                         <p><span class="title-line">Diện tích:</span> <?php echo $products->area; ?> m<sup>2</sup></p>
+                         <?php if($products->amount_unit =='tỷ'): ?>
+                         <p><span class="title-line">Giá:</span> <?php echo $products->amount/1000; ?> <?php echo $products->amount_unit; ?></p>
+                         <?php else: ?>
+                         <p><span class="title-line">Giá:</span> <?php echo $products->amount; ?> <?php echo $products->amount_unit; ?></p>
+                         <?php endif; ?>
+                         <p><span class="title-line">Địa điểm:</span> <?php echo $products->street; ?>, <?php echo $products->district; ?>, <?php echo $products->city; ?> </p>
+                       </div>
+                       <?php if(count($images)>0): ?>
+                       <div class="row">
+                           <div class="col-sm-offset-1 col-sm-10 slider-image">
+                           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                          <!-- Indicators -->
+                          <ol class="carousel-indicators">
+                            <?php $i=0;?>
+                          <?php foreach($images as $image): ?>
+                          <?php if($i==0): ?>
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                          <?php else: ?>
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"><?php echo $i; ?></li>
+                          <?php endif; ?>
+                          <?php $i++;?>
+                          <?php endforeach; ?>
+                          </ol>
+
+                          <!-- Wrapper for slides -->
+                          <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                            <?php $i=0;?>
+                             <?php foreach($images as $image): ?>
+                            <?php $i++;?>
+                              <?php if($i==1): ?>
+                              <img class="detail-image"  src="<?php echo asset('assets/img'); ?>/<?php echo $image->image; ?>"  alt="Slider 1">
+                              <div class="carousel-caption">
+                                 <h3>Demo Slider</h3>
+                                 <p>The slideshow below shows a generic plugin and component for cycling through elements like a carousel.</p>
+                              </div>
+                           </div>
+                           <?php else: ?>
+                           <div  class="item">
+                              <img class="detail-image" src="<?php echo Asset('assets/img'); ?>/<?php echo $image->image; ?>" alt="Slider"/>
+                           </div>
+                           <?php endif; ?>
+                              <?php endforeach; ?>
+                            </div>
+                          <!-- Controls -->
+                          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </div>
+                        </div>
+                        </div><!--End .silder-image-->
+                        <?php endif; ?> <!--End .row of slider image-->
+                       <!-- Table -->
+                       <ul class="list-group tags">
+                            
+                            <li class="list-group-item">
+                              <div>
+                                 <i class="glyphicon glyphicon-tags"></i> 
+                              Tags: <?php echo $products->tags; ?>
+
+                              </div>
+                            </li>
+                       </ul>
+                    </div>
+               <?php else: ?>
+               <div class="page">Không có sản phẩm</div>
+               <?php endif; ?> <!--end products-->
+      
+               </div><!--end <div class="row detail">-->
+
+               <div class="line"></div>
+               <div class="pagper-other">
+                  <div class="row">
+                     <h3>Tin khác</h3>
+                     <ul>
+                        <?php if(count($productlist)>0): ?>
+                        <?php foreach($productlist as $product): ?>
+                        <li><a href="<?php echo Asset('nhadat/chitiet'); ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>"><?php echo $product['title']; ?></a></li>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
+                     </ul>
+                  </div>
+               </div>
+            </div><!--End content-nha-->
+            <div class="col-sm-3 side-bar">
+               <?php echo $__env->make('template.side-bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            </div>
+         </div>
+      </div>
+<!--End .container-->
+<div class="news">
+   <?php echo $__env->make('template.news', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</div>
+<!--End .news-->
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('nhadat.basic', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

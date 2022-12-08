@@ -1,0 +1,142 @@
+<div class="sidebar-rotater">
+<div class="panel panel-warning panel-search">
+  <div class="panel-heading">
+    <h3 class="panel-title text_center">TÌM KIẾM NHÀ ĐẤT</h3>
+  </div>
+  <div class="panel-body custom-body">
+   <form method ="post" id="side_bar" action="<?php echo Asset('dangtin/list'); ?>" class="form-horizontal">
+		<div class="form-group" >
+			<label style="padding-left:0px" for="category" class="col-sm-5 control-label">Hạng mục</label>
+			<div style="padding-left:0px"  class="col-sm-7" >
+				<select class="form-control" id="sibar_category" name="sibar_category" >
+					<option style="color:gray" value="">Chọn hạng mục</option>
+                    <?php foreach($categories as $category): ?>
+                    <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="type" class="col-sm-5 control-label">Hình thức</label>
+			<div class="col-sm-7" style="padding-left:0px" >
+				 <select class="form-control" id="sibar_type" name="sibar_type" >
+					<option style="color:gray" value="">Chọn Hình thức</option>
+                    <?php foreach($types as $type): ?>
+                    <option value="<?php echo $type['id']; ?>"><?php echo $type['name']; ?></option>
+                    <?php endforeach; ?>
+                    </select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="tinhtp" class="col-sm-5 control-label">Tỉnh/TP</label>
+			<div class="col-sm-7" style="padding-left:0px" >
+				<select class="form-control" id="sibar_city" name="sibar_city">
+					<option style="color:gray" value="">Chọn Tỉnh/TP</option>
+					<?php foreach($cityinfo as $city): ?>
+					<option value="<?php echo $city['id']; ?>"><?php echo $city['name']; ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+		</div>
+		<div class="form-group" id="display-sibar-district">
+			<label for="quanhuyen" class="col-sm-5 control-label">Quận/Huyện</label>
+			<div class="col-sm-7" style="padding-left:0px" >
+
+				<select class="form-control" id="sibar_district" name="sibar_district" >
+					<option style="color:gray" value="">Chọn Quận/Huyện</option>
+					<?php foreach($districts as $district): ?>
+					<option value="<?php echo $district['id']; ?>"><?php echo $district['name']; ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+		</div>
+		<div class="form-group" id="display-sibar-street">
+			<label for="street" class="col-sm-5 control-label">Đường</label>
+			<div class="col-sm-7" style="padding-left:0px" >
+
+				<select class="form-control" id="sibar_street" name="sibar_street" >
+					<option style="color:gray" value="">Chọn Đường</option>
+					 <?php foreach($streetinfo as $street): ?>
+                    <option value="<?php echo $street['id']; ?>"><?php echo $street['name']; ?></option>
+                    <?php endforeach; ?>
+                    
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="dientich" class="col-sm-5 control-label">Diện tích</label>
+			<div class="col-sm-7" style="padding-left:0px" >
+				<select class="form-control" id="sibar_area" name="sibar_area" >
+					<option style="color:gray" value="">Chọn Diện tích</option>
+					<?php foreach($areas as $area): ?>
+					<option value="<?php echo $area['id']; ?>"><?php echo $area['name']; ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="gia" class="col-sm-5 control-label">Giá</label>
+			<div class="col-sm-7" style="padding-left:0px" >
+				<select class="form-control" id="sibar_amount" name="sibar_amount" >
+					<option style="color:gray" value="">Chọn Giá</option>
+					<?php foreach($amounts as $amount): ?>
+					<option value="<?php echo $amount['id']; ?>"><?php echo $amount['name']; ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-3 col-sm-9">
+			<input type="submit" class="btn btn-info hvr-wobble-to-bottom-right" value="Tìm">
+
+			<button id="btnclear" name="btnclear" class="btn btn-default hvr-float-shadow">Làm trắng</button>
+			</div>
+		</div>
+	</form>
+</div><!--End panel-body-->
+</div><!--End panel-->
+<div class="panel panel-warning panel-search">
+
+ <div class="panel-heading">
+    <h3 class="panel-title text_center">Xem Nhiều Nhất</h3>
+  </div>
+	<div class="row ">
+           
+                <ul class="xemnhieunhat">
+                    <?php foreach($product_dangtin as $product): ?>
+                     <li>
+                        <a href="<?php echo Asset($product->category_title); ?>/chitiet/<?php echo $product->name; ?>-<?php echo $product->id; ?>" id="news-dot" class="news-dot" >
+                        <span class="news-dot-title"><?php echo $product->title; ?></span>
+                        </a>
+                     </li>
+                     <?php endforeach; ?>
+                </ul>
+          </div>
+          </div><!--End .row .Rao vat--
+<!--end .well-->
+<div class="well">
+	<form>
+		<h4>Hotline:</h4>
+		<h4> Nguyễn Bình</h4>
+		<div class="mobile">
+			<a class="btn-phone" href="#">
+			<i class="glyphicon glyphicon-earphone"> <span class="span-mobile">0938.569.939</span></i>
+			</a>
+		</div>		
+	</form>
+  
+</div><!--end .well-->
+<div class="well">
+	<form>
+		<h4>Số lượt xem</h4>
+		
+		<div class="mobile">
+			<a href="http://info.flagcounter.com/xE27"><img src="http://s07.flagcounter.com/count2/xE27/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_3/labels_0/pageviews_1/flags_0/" alt="Flag Counter" border="0"></a>
+			
+		</div>		
+	</form>
+  
+</div><!--end .well-->
+</div>
+
+<!--End .well-->

@@ -1,0 +1,49 @@
+<?php $__env->startSection('css'); ?>
+<?php echo HTML::style('assets/css/dangtin.css');; ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('slider'); ?>
+<?php echo $__env->make('template.slider', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+<div class="container">
+      <?php echo $__env->make('tintuc.link-category', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+       
+         <div class="row">
+
+            <div class="col-sm-9 news-block">
+           <?php echo $__env->make('tintuc/link-child', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+              <div class="row">
+                <div class="col-sm-8 news-detail ">
+                  <div class="row">
+                    <div class="col-sm-10 pull-left">
+                    <?php echo $product->startdate; ?>
+
+                      
+                    </div>
+                    <?php $i=1; ?>
+                    <div class="col-sm-2 pull-right">
+                          <a class="" id="edit<?php echo $i; ?>" title="Sửa"data-toggle="tooltip" data-placement="right" title="Sửa"  href="<?php echo Asset('tintuc/edit'); ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>"><i class="glyphicon glyphicon-edit"></i></a>
+                         <a class="" id="remove<?php echo $i; ?>" title="Xóa" data-toggle="tooltip" data-placement="right" title="Xóa" href="<?php echo Asset('tintuc/delete'); ?>/<?php echo $product['id']; ?>"><i class="glyphicon glyphicon-trash"></i></a>
+                              
+                    </div>
+                  </div>
+                  <div class="row">
+                    <h3><?php echo $product->title; ?></h3>
+                  <?php echo $product->content; ?>  
+                  </div>
+                </div>
+                
+                </div>
+              </div>
+            <div class="col-sm-3 side-bar">
+            <?php echo $__env->make('category.side-bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+            </div>
+            </div>
+      </div>
+<!--End .container-->
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('tintuc.basic', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

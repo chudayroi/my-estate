@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row">
+		<div class="new-lists">
+			<div class="page-first">
+	         <div   class="arrowLine1 "><span class="title-page-first"></span></div>
+			<div class="hvr-wobble-horizontal">
+			         
+			         <div   class="arrowLine">
+			         <a href="<?php echo Asset('tintuc'); ?>"><span class="title-page-first">Tin tức</span></a>
+			         </div>
+			         <div class="triangle_left"></div>
+		 	</div>
+		</div>
+			<div class="row">
+				<?php foreach($news_common as $product): ?>
+				<div class="col-sm-3 news-item">
+					
+					<a class="news-title" href="<?php echo Asset('tintuc'); ?>/<?php echo $product->category_title; ?>/<?php echo $product->name; ?>-<?php echo $product->id; ?>"><span class="span-news-title"><?php echo $product->title; ?></span></a>
+					
+					<div class="image-news">
+						<a href="<?php echo Asset('tintuc'); ?>/<?php echo $product->category_title; ?>/<?php echo $product->name; ?>-<?php echo $product->id; ?>"><img src="<?php echo asset('assets/img/news'); ?>/<?php echo $product->image; ?>" alt="<?php echo $product->name; ?>" class="img-responsive img-news" /></a>
+					</div>
+					<p class="">
+						<?php echo $product->content_summary; ?>
+
+					</p>
+				</div><!--news-item-->
+				<?php endforeach; ?>
+			</div>
+
+			
+		</div>
+		<!--end .new-lists-->
+	</div>
+</div>

@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="shortcut icon" href="ico/favicon.png">
+		<title>
+			<?php echo $__env->yieldContent('title'); ?>
+		</title>
+		<?php echo HTML::style('assets/css/bootstrap.min.css');; ?>
+
+		<?php echo HTML::style('assets/css/style.css');; ?>
+
+		<?php echo HTML::style('//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');; ?>
+
+		<?php echo HTML::style('assets/css/datepicker.css');; ?>
+
+		<?php echo $__env->yieldContent('css'); ?>
+		 
+	</head>
+	<body>
+		<header>
+			 <nav class="navbar navbar-default navbar-fixed-top">
+			<div class="main-nav">
+				<div class="container">
+					<div class="row">
+						<ul class="nav nav-pills">
+							<li class="">
+								<a href="<?php echo Asset('home'); ?>"><i class="glyphicon glyphicon-home"></i> Home</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									Nhà Đất
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="<?php echo Asset('nhadat/ho-chi-minh'); ?>">TP. Hồ Chí Minh</a></li>
+									<li><a href="<?php echo Asset('nhadat/binh-duong'); ?>">Bình Dương</a></li>
+									<li><a href="<?php echo Asset('nhadat/dong-nai'); ?>">Đồng Nai</a></li>
+									<li><a href="<?php echo Asset('nhadat/long-an'); ?>">Long An</a></li>
+									<li><a href="<?php echo Asset('nhadat'); ?>">Tất cả</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									Dự Án
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="<?php echo Asset('duan/ho-chi-minh'); ?>">TP. Hồ Chí Minh</a></li>
+									<li><a href="<?php echo Asset('duan/binh-duong'); ?>">Bình Dương</a></li>
+									<li><a href="<?php echo Asset('duan/dong-nai'); ?>">Đồng Nai</a></li>
+									<li><a href="<?php echo Asset('duan/long-an'); ?>">Long An</a></li>
+									<li><a href="<?php echo Asset('duan'); ?>">Tất cả</a></li>
+								</ul>
+							</li>
+							<li><a href="#">Tin Tức</a></li>
+							<li><a href="<?php echo Asset('dangtin/add'); ?>">Đăng Tin</a></li>
+							<li><a href="#">Liên Hệ</a></li>
+							<li><a href="#">Giới Thiệu</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									Link Liên kết
+								</a>
+								<ul class="dropdown-menu">
+									<li><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+								</ul>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				</nav>
+			</div><!--end .main-nav-->
+			
+			<div class="top-bar">
+			
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							
+							<div class="pull-right">
+								<ul class="list-unstyled top-links">
+									<li><a href="#">Sign in</a></li>
+									<li><a href="#">Create new account</a></li>
+								</ul>	
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div><!--end .top-bar-->
+			
+			<div class="main-header">
+			
+
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-4 search-w">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Search intire store here">
+								<span class="input-group-btn">
+								<button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+								</span>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="logo text-center">
+								<a href="#"><img src="<?php echo asset('assets/img/logo.jpg'); ?>" alt="Logo" /></a>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="pull-right">
+								<div class="cart-wish-w">
+									<div class="cart-w">
+										<div class="cart-info">
+											<span>
+												<strong>0 item</strong>
+												<strong>0 quantity</strong>
+											</span>
+											<a href="#" class="btn-cart">
+												<i class="glyphicon glyphicon-shopping-cart"></i>
+											</a>
+										</div>
+									</div>
+									<div class="wishlist-w">
+										<div class="wishlist-info">
+											<span>
+												<strong>0 product</strong>
+											</span>
+											<a href="#" class="btn-cart">
+												<i class="glyphicon glyphicon-heart"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div><!--end .header-header-->
+
+		</header>
+		<section class="slider">
+			<?php echo $__env->yieldContent('slider'); ?>
+		</section>
+		<section class="content">
+			<?php echo $__env->yieldContent('content'); ?>
+		</section>
+		<!-- jQuery -->
+		<footer class="footer">
+		<div class="footer-custom">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="title">
+							<h3>About us</h3>
+							<div class="line"></div>
+						</div>
+						<div class="content">
+							<p>
+								This is a CMS block edited from admin panel. You can insert any content here. 
+							</p>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas odio arcu, feugiat vel congue feugiat, laoreet vitae diam.
+							</p>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non dui at sapien tempor gravida ut vel arcu. 
+							</p>
+						</div>
+					</div>
+
+					<div class="col-sm-3 contact-us">
+						<div class="title">
+							<h3>Contact Us</h3>
+							<div class="line"></div>
+						</div>
+						<div class="content">
+							<div class="item">
+								<div class="icon">
+									<i class="glyphicon glyphicon-map-marker"></i>
+								</div>
+								<div class="info">
+									Lingeries Store 34 New Clity 5655, Excel Tower OPG Rpad, 4538FH
+								</div>
+							</div>
+							<div class="item">
+								<div class="icon">
+									<i class="glyphicon glyphicon-phone-alt"></i>
+								</div>
+								<div class="info">
+									+1 800 123 1234
+								</div>
+							</div>
+							<div class="item">
+								<div class="icon">
+									<i class="glyphicon glyphicon-envelope"></i>
+								</div>
+								<div class="info">
+									<a href="#">support@smooththemes.com</a>
+								</div>
+							</div>
+							<div class="item">
+								<div class="icon">
+									<i class="glyphicon glyphicon-user"></i>
+								</div>
+								<div class="info">
+									<a href="#">SmoothThemes</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="title">
+							<h3>Twitter</h3>
+							<div class="line"></div>
+						</div>
+						<div class="content">
+							<div class="tweet-content">
+								At refreshed 
+								<a target="_blank" href="http://t.co/eNvqKTup1d">http://t.co/eNvqKTup1d</a>, personalize your profile w/ accent color: 
+								<a target="_blank" href="http://t.co/vxt1P3BDxq&gt;web">http://t.co/vxt1P3BDxq&gt;web</a> design. 
+								<a target="_blank" href="http://t.co/y7r1a6jqxl">http://t.co/y7r1a6jqxl</a> 
+								<span class="time">
+								<a target="_blank" title="" href="http://twitter.com/783214/status/422841285339131904"> about 2 days ago</a>
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="title">
+							<h3>Facebook</h3>
+							<div class="line"></div>
+						</div>
+						<div class="content">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-links">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3">
+						<h3>Meta</h3>
+						<ul class="list-unstyled">
+							<li><a href="#">Register</a></li>
+							<li><a href="#">Log in</a></li>
+							<li>
+								<a href="#" title="Syndicate this site using RSS 2.0">Entries <abbr title="Really Simple Syndication">RSS</abbr></a>
+							</li>
+							<li>
+								<a href="#" title="The latest comments to all posts in RSS">Comments <abbr title="Really Simple Syndication">RSS</abbr>
+								</a>
+							</li>
+							<li>
+								<a href="#" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-sm-3">
+						<h3>Information</h3>
+						<ul class="list-unstyled">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">About Us</a></li>
+							<li><a href="#">Delivery</a></li>
+							<li><a href="#">Secure payment</a></li>
+							<li><a href="#">Sitemap</a></li>
+						</ul>
+					</div>
+
+					<div class="col-sm-3">
+						<h3>Support</h3>
+						<ul class="list-unstyled">
+							<li><a href="#">Specials</a></li>
+							<li><a href="#">New products</a></li>
+							<li><a href="#">Top sellers</a></li>
+							<li><a href="#">Our stores</a></li>
+							<li><a href="#">Contact us</a></li>
+						</ul>
+					</div>
+
+					<div class="col-sm-3">
+						<h3>My account</h3>
+						<ul class="list-unstyled">
+							<li><a href="#">My orders</a></li>
+							<li><a href="#">My credit slips</a></li>
+							<li><a href="#">My personal info</a></li>
+							<li><a href="#">My vouchers</a></li>
+							<li><a href="#">My addresses</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<p>&copy; 2015 | Copy right tinbatdongsan</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer><!--end .footer-->
+	<?php echo HTML::script('assets/js/jquery-2.0.3.min.js');; ?>
+
+	<?php echo HTML::script('assets/js/bootstrap.min.js');; ?>
+
+	<?php echo HTML::script('assets/js/moment.js');; ?>
+
+	<?php echo HTML::script('assets/js/jquery-form.js');; ?>
+
+	<?php echo HTML::script('assets/js/jquery.ui.js');; ?>
+
+	<?php echo HTML::script('assets/js/main.js');; ?>
+
+	<?php echo HTML::script('assets/js/jquery-validate/jquery.validate.js');; ?>
+
+	<?php echo HTML::script('assets/js/bootstrap-datepicker.js');; ?>
+
+	<?php echo HTML::script('assets/editor/jscripts/tiny_mce/tiny_mce.js');; ?>
+
+	
+	<?php echo $__env->yieldContent('link-js'); ?>
+</body>
+
+
+<script type="text/javascript">
+function xoa(id){
+	$('#id_product_item'+id).remove();
+}
+$('#xoa1').click(function(){
+	$('#id_product_item1').hide();
+});
+//End delete
+	//sider bar
+	$('#sibar_category').val('<?php echo $info_search['sibar_category']; ?>');
+	$('#sibar_type').val('<?php echo $info_search['sibar_type']; ?>');
+	$('#sibar_city').val('<?php echo $info_search['sibar_city']; ?>');
+	var district = '<?php echo $info_search['sibar_district']; ?>';
+	if(district !='') $('#display-sibar-district').show();
+	$('#sibar_district').val('<?php echo $info_search['sibar_district']; ?>');
+	$('#sibar_area').val('<?php echo $info_search['sibar_area']; ?>');
+	$('#sibar_amount').val('<?php echo $info_search['sibar_amount']; ?>');
+ 	$('#sibar-tinhtp').change(function(event){
+   	event.preventDefault();
+ 		var city_id =  $('#sibar-tinhtp').val();
+ 		$("#display-sibar-quanhuyen").show();
+ 		$('#sibar-quanhuyen').empty();
+ 		$('#sibar-quanhuyen')
+			.append($("<option></option>")
+			.attr("value","")
+			.attr("style","color:gray")
+			.text("Chọn Quận/Huyện")
+			); //End $('#sibar-quanhuyen')
+ 			$.ajax({
+                    url : "<?php echo asset('first/loadDistrict'); ?>",
+                    type : 'get',
+                    dataType: 'json',
+                    data:{city_id:city_id},
+                    success : function (result){
+                    	$.each(result, function(index, val) {
+                    		 $('#sibar-quanhuyen')
+						         .append($("<option></option>")
+						         .attr("value",val.id)
+						         .text(val.name)
+						     ); //End $('#sibar-quanhuyen')
+                    	});//End $.each(result, function(index, val)
+                    	
+                    }//End success
+        	});//End ajax
+ 	});//End $('#sibar-tinhtp').change(function(event)
+ 	
+    //side bar
+   $('#sibar_city').change(function(event){
+
+   	event.preventDefault();
+     var city_id =  $('#sibar_city').val();
+     $('#sibar_district').empty();
+ 		$('#sibar_district')
+			.append($("<option></option>")
+			.attr("value","")
+			.attr("style","color:gray")
+			.text("Chọn Quận/Huyện")
+			); //End $('#sibar-quanhuyen')
+        $('#display-sibar-district').show();
+
+         $.ajax({
+                    url : "<?php echo asset('first/loadDistrict'); ?>",
+                    type : 'get',
+                    dataType: 'json',
+                    data:{city_id:city_id},
+                    success : function (result){
+
+                     $.each(result, function(index, val) {
+                         $('#sibar_district')
+                           .append($("<option></option>")
+                           .attr("value",val.id)
+                           .text(val.name)
+                       ); //End $('#quanhuyen')
+                     });//End $.each(result, function(index, val)
+                     
+                    }//End success
+         });//End ajax
+   });//End $('#tinhtp').change(function(event)
+   //search  sider-bar
+   $('#btnclear').click(function(event) {
+   		event.preventDefault();
+		$('#sibar_category').val('');
+		$('#sibar_type').val('');
+		$('#sibar_city').val('');
+		$('#display-sibar-district').hide();
+		$('#sibar_district').val('');
+		$('#sibar_area').val('');
+		$('#sibar_amount').val('');
+   });
+   $('#btnsearch').click(function(event) {
+   		event.preventDefault();
+   		var data = $('#side_bar').serialize();
+   		$.ajax({
+                    url : "<?php echo asset('nhadat/search'); ?>",
+                    type : 'get',
+                    dataType: 'json',
+                    data:data,
+                    success : function (result){
+                         $('.product-lists').empty();
+                        $('.product-lists')
+                           .append($('<div></div>')
+                           .attr('class','row')
+                           .attr('id','product_row')
+                           );
+                           var i=0;
+                           var total=0;
+                        $.each(result, function(index, result1) {
+                           $.each(result1, function(index1, val1) {
+                              i = i+1;
+                              if(i==1)	total = val1.total;
+                              $('#product_row')
+                                 .append($('<div></div>')
+                                 .attr('class','col-sm-3 product-item')
+                                 .attr('id','id_product_item'+i)
+                                 );
+                              $('#id_product_item'+i)
+                                 .append($('<div></div>')
+                                 .attr('class','image')
+                                 .attr('id','id_image'+i)
+                                 
+                                 );
+                                 $('#id_image'+i)
+                                 .append($('<a></a>')
+                                 .attr('href','#')
+                                 .attr('id','ai'+i)
+                                 );
+                                 $('#ai'+i)
+                                 .append($('<img></img>')
+                                 .attr('src','<?php echo asset('assets/img/product/1.jpg'); ?>')
+                                 );
+                                 $('#id_product_item'+i)
+                                 .append($('<div></div>')
+                                 .attr('class','title')
+                                 .attr('id','title'+i)
+                                 );
+                                 $('#title'+i)
+                                 .append($('<p></p>')
+                                 .attr('id','p'+i)
+                                 );
+                                 $('#p'+i)
+                                 .append($('<a></a>')
+                                 .text(val1.title)
+                                 );
+                                 $('#id_product_item'+i)
+                                 .append($('<div></div>')
+                                 .attr('class','address')
+                                 .attr('id','area'+i)
+                                 );
+                                 $('#area'+i)
+                                 .append($('<div></div>')
+                                 .attr('class','icon')
+                                 .attr('id','area_icon'+i)
+                                 );
+                                 $('#area_icon'+i)
+                                 .append($('<i></i>')
+                                 .attr('class','glyphicon glyphicon-th-large')
+                                 );
+                                 $('#area'+i)
+                                 .append($('<div></div>')
+                                 .attr('class','info')
+                                 .text(val1.area+' m2')
+                                 );
+                                 $('#id_product_item'+i)
+                                 .append($('<div></div>')
+                                 .attr('class','address')
+                                 .attr('id','amount'+i)
+                                 );
+                                 $('#amount'+i)
+                                 .append($('<div></div>')
+                                 .attr('class','icon')
+                                 .attr('id','amount_icon'+i)
+                                 );
+                                 $('#amount_icon'+i)
+                                 .append($('<i></i>')
+                                 .attr('class','glyphicon glyphicon-usd')
+                                 );
+                                 $('#amount'+i)
+                                 .append($('<div></div>')
+                                 .attr('class','info')
+                                 .text(val1.amount+' '+val1.amount_unit)
+                                 );
+                                 $('#id_product_item'+i)
+                                 .append($('<div></div>')
+                                 .attr('class','address')
+                                 .attr('id','district'+i)
+                                 );
+                                 $('#district'+i)
+                                 .append($('<div></div>')
+                                 .attr('class','icon')
+                                 .attr('id','district_icon'+i)
+                                 );
+                                 $('#district_icon'+i)
+                                 .append($('<i></i>')
+                                 .attr('class','glyphicon glyphicon-map-marker')
+                                 );
+                                 $('#district'+i)
+                                 .append($('<div></div>')
+                                 .attr('class','info')
+                                 .text(val1.district+', '+val1.city)
+                                 );
+                                 $('#id_product_item'+i)
+                                 .append($('<div></div>')
+                                 .attr('class','address')
+                                 .attr('data-toggle','tooltip')
+                                 .attr('data-placement','bottom')
+                                 .attr('title','Ngày đăng')
+                                 .attr('id','startdate'+i)
+                                 );
+                                 $('#startdate'+i)
+                                 .append($('<div></div>')
+                                 .attr('class','icon')
+                                 .attr('id','startdate_icon'+i)
+                                 );
+                                 $('#startdate_icon'+i)
+                                 .append($('<i></i>')
+                                 .attr('class','glyphicon glyphicon-time')
+                                 );
+                                 $('#startdate'+i)
+                                 .append($('<div></div>')
+                                 .attr('class','info')
+                                 .text(val1.startdate)
+                                 );
+                                 
+                           });//End $.each(result1, function(index1, val1)
+                     });//End $.each(result, function(index, val)
+                     
+                     	$('.btnpage').empty();
+                     	//append btnpage
+                     	$('.btnpage')
+                     		.append($('<button></button>')
+		                            .attr('class','btn btn-link first')
+		                            .attr('type','button')
+		                            .attr('id','first')
+		                            .text('Đầu tiên')
+                     		);
+                     	$('.btnpage')
+                     		.append($('<button></button>')
+		                            .attr('class','btn btn-link pre')
+		                            .attr('type','button')
+		                            .attr('id','pre')
+		                            .html('<i class="glyphicon glyphicon-hand-left"></i>')
+                     		);
+                     		for (var i = 1; i <= total; i++) {
+                     			if(i==1) {
+                     				$('.btnpage')
+                     				.append($('<button></button>')
+		                            .attr('class','btn btn-link page')
+		                            .attr('type','button')
+		                            .attr('id',i)
+		                            .html(i)
+		                     		);
+                     			}
+                     			else {
+                     				$('.btnpage')
+                     				.append($('<button></button>')
+		                            .attr('class','btn btn-link')
+		                            .attr('type','button')
+		                            .attr('id',i)
+		                            .html(i)
+		                     		);
+                     			}
+                     		                  		
+                     		};
+                     		$('.btnpage')
+                     		.append($('<button></button>')
+		                            .attr('class','btn btn-link next')
+		                            .attr('type','button')
+		                            .attr('id','next')
+		                           .html('<i class="glyphicon glyphicon-hand-right"></i>')
+                     		);
+                     	$('.btnpage')
+                     		.append($('<button></button>')
+		                            .attr('class','btn btn-link end')
+		                            .attr('type','button')
+		                            .attr('id','end')
+		                            .text('Cuối')
+		                            
+                     		);
+                     		//End append btnpage
+                    
+                    }//End success
+         });//End ajax
+   });
+
+   //End search sider bar
+   //pagination
+$("button").click(function(event) {
+    event.preventDefault();
+   var page = this.id;
+   if($('#elemId').length){
+   	var sortby = $('#sortby').val();
+   }
+   else var sortby=0;
+   var sibar_category = $('#sibar_category').val();
+   var sibar_type = $('#sibar_type').val();
+   var sibar_city = $('#sibar_city').val();
+   var sibar_district = $('#sibar_district').val();
+   var sibar_area = $('#sibar_area').val();
+   var sibar_amount = $('#sibar_amount').val();
+   var currentpage = $('#currentpage').val();
+   if(page=='first') page =1;
+   else if(page=='pre') page =currentpage -1;
+   else if(page=='next') page = parseInt(currentpage) +1;
+   else if(page=='end') page =totalpage;
+   if($.isNumeric(page)){
+      $('.process').show();
+     $.ajax({
+                       url : "<?php echo asset('dangtin/load'); ?>",
+                       type : 'post',
+                       dataType: 'json',
+                       data: {'page':page,'sortby':sortby,'sibar_category':sibar_category,'sibar_type':sibar_type,'sibar_city':sibar_city,'sibar_district':sibar_district,'sibar_area':sibar_area,'sibar_amount':sibar_amount},
+                       success : function (result){
+                           $( "button" ).removeClass( "page" );
+                           if(page>1 && page < totalpage){
+                              $('.first').show();
+                              $('.pre').show();
+                              $('.next').show();
+                              $('.end').show();
+                           }
+                           else if(page==1){
+                              $('.first').hide();
+                              $('.pre').hide();
+                              $('.next').show();
+                              $('.end').show();
+                           }
+                           else if(page==totalpage){
+                              $('.next').hide();
+                              $('.end').hide();
+                              $('.first').show();
+                              $('.pre').show();
+                           }
+                           $('#currentpage').val(page);
+                           $('#'+page).addClass('page');
+                           $('.product-lists').empty();
+                           $('.product-lists')
+                              .append($('<div></div>')
+                              .attr('class','row')
+                              .attr('id','product_row')
+                              );
+                              var i=0;
+                           $.each(result, function(index, result1) {
+                              $.each(result1, function(index1, val1) {
+                                 i = i+1;
+
+                                 $('#product_row')
+                                    .append($('<div></div>')
+                                    .attr('class','col-sm-3 product-item')
+                                    .attr('id','id_product_item'+i)
+                                    );
+                                 $('#id_product_item'+i)
+                                    .append($('<div></div>')
+                                    .attr('class','image')
+                                    .attr('id','id_image'+i)
+                                    
+                                    );
+                                    $('#id_image'+i)
+                                    .append($('<a></a>')
+                                    .attr('href','<?php echo Asset('nhadat/chitiet'); ?>'+'/'+val1.name+'-'+val1.id)
+                                    .attr('id','ai'+i)
+                                    );
+                                    $('#ai'+i)
+                                    .append($('<img></img>')
+                                    .attr('src','<?php echo asset('assets/img'); ?>'+'/'+val1.image)
+                                    );
+                                    $('#id_product_item'+i)
+                                    .append($('<div></div>')
+                                    .attr('class','title')
+                                    .attr('id','title'+i)
+                                    );
+                                    $('#title'+i)
+                                    .append($('<p></p>')
+                                    .attr('id','p'+i)
+                                    );
+                                    $('#p'+i)
+                                    .append($('<a></a>')
+                                    .text(val1.title)
+                                    );
+                                    $('#id_product_item'+i)
+                                    .append($('<div></div>')
+                                    .attr('class','address')
+                                    .attr('id','area'+i)
+                                    );
+                                    $('#area'+i)
+                                    .append($('<div></div>')
+                                    .attr('class','icon')
+                                    .attr('id','area_icon'+i)
+                                    );
+                                    $('#area_icon'+i)
+                                    .append($('<i></i>')
+                                    .attr('class','glyphicon glyphicon-th-large')
+                                    );
+                                    $('#area'+i)
+                                    .append($('<div></div>')
+                                    .attr('class','info')
+                                    .text(val1.area+' m2')
+                                    );
+                                    $('#id_product_item'+i)
+                                    .append($('<div></div>')
+                                    .attr('class','address')
+                                    .attr('id','amount'+i)
+                                    );
+                                    $('#amount'+i)
+                                    .append($('<div></div>')
+                                    .attr('class','icon')
+                                    .attr('id','amount_icon'+i)
+                                    );
+                                    $('#amount_icon'+i)
+                                    .append($('<i></i>')
+                                    .attr('class','glyphicon glyphicon-usd')
+                                    );
+                                    $('#amount'+i)
+                                    .append($('<div></div>')
+                                    .attr('class','info')
+                                    .text(val1.amount+' '+val1.amount_unit)
+                                    );
+                                    $('#id_product_item'+i)
+                                    .append($('<div></div>')
+                                    .attr('class','address')
+                                    .attr('id','district'+i)
+                                    );
+                                    $('#district'+i)
+                                    .append($('<div></div>')
+                                    .attr('class','icon')
+                                    .attr('id','district_icon'+i)
+                                    );
+                                    $('#district_icon'+i)
+                                    .append($('<i></i>')
+                                    .attr('class','glyphicon glyphicon-map-marker')
+                                    );
+                                    $('#district'+i)
+                                    .append($('<div></div>')
+                                    .attr('class','info')
+                                    .text(val1.district+', '+val1.city)
+                                    );
+                                    $('#id_product_item'+i)
+                                    .append($('<div></div>')
+                                    .attr('class','address')
+                                    .attr('data-toggle','tooltip')
+                                    .attr('data-placement','bottom')
+                                    .attr('title','Ngày đăng')
+                                    .attr('id','startdate'+i)
+                                    );
+                                    $('#startdate'+i)
+                                    .append($('<div></div>')
+                                    .attr('class','icon')
+                                    .attr('id','startdate_icon'+i)
+                                    );
+                                    $('#startdate_icon'+i)
+                                    .append($('<i></i>')
+                                    .attr('class','glyphicon glyphicon-time')
+                                    );
+                                    $('#startdate'+i)
+                                    .append($('<div></div>')
+                                    .attr('class','info')
+                                    .text(val1.startdate)
+                                    );
+                              });//End $.each(result1, function(index1, val1)
+                        });//End $.each(result, function(index, val)
+                        $('.process').hide();
+                        
+     
+                           //$(".product-item").animate({ scrollTop: 0 }, "slow");
+                       }//End success
+            });//End ajax
+         }//End if is number
+});
+tinyMCE.init({
+		// General options
+		mode : "textareas",
+		theme : "advanced",
+		plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
+
+		// Theme options
+		theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+		theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,sreplace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+		theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+
+		theme_advanced_toolbar_location : "top",
+		theme_advanced_toolbar_align : "left",
+		theme_advanced_statusbar_location : "bottom",
+		theme_advanced_resizing : true,
+
+		// Example content CSS (should be your site CSS)
+		content_css : "css/content.css",
+
+		// Drop lists for link/image/media/template dialogs
+		template_external_list_url : "lists/template_list.js",
+		external_link_list_url : "lists/link_list.js",
+		external_image_list_url : "lists/image_list.js",
+		media_external_list_url : "lists/media_list.js",
+
+		// Style formats
+		style_formats : [
+			{title : 'Bold text', inline : 'b'},
+			{title : 'Red text', inline : 'span', styles : {color : '#ff0000'}},
+			{title : 'Red header', block : 'h1', styles : {color : '#ff0000'}},
+			{title : 'Example 1', inline : 'span', classes : 'example1'},
+			{title : 'Example 2', inline : 'span', classes : 'example2'},
+			{title : 'Table styles'},
+			{title : 'Table row 1', selector : 'tr', classes : 'tablerow1'}
+		],
+
+		// Replace values for the template plugin
+		template_replace_values : {
+			username : "Some User",
+			staffid : "991234"
+		}
+	});
+   //End pagination
+   <?php echo $__env->yieldContent('js'); ?>
+</script>
+</html>

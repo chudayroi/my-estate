@@ -1,0 +1,15 @@
+<?php echo HTML::style('assets/css/bootstrap.min.css');; ?>
+
+<?php echo HTML::style('assets/hover/css/hover.css');; ?>
+
+<?php echo HTML::style('assets/css/bootstrap-social.css');; ?>
+
+<?php echo HTML::style('assets/font-awesome/css/font-awesome.css');; ?>
+
+<?php echo HTML::style('assets/css/style.css');; ?>
+
+<?php echo HTML::style('assets/css/tintuc.css');; ?>
+
+<?php echo HTML::style('//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');; ?>
+
+<?php echo HTML::style('assets/css/datepicker.css');; ?>

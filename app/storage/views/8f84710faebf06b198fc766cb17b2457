@@ -1,0 +1,17 @@
+<?php echo HTML::script('assets/js/jquery-2.0.3.min.js');; ?>
+
+<?php echo HTML::script('assets/js/bootstrap.min.js');; ?>
+
+<?php echo HTML::script('assets/js/moment.js');; ?>
+
+<?php echo HTML::script('assets/js/jquery-form.js');; ?>
+
+<?php echo HTML::script('assets/js/jquery.ui.js');; ?>
+
+<?php echo HTML::script('assets/js/main.js');; ?>
+
+<?php echo HTML::script('assets/js/jquery-validate/jquery.validate.js');; ?>
+
+<?php echo HTML::script('assets/js/bootstrap-datepicker.js');; ?>
+
+<?php echo HTML::script('assets/editor/jscripts/tiny_mce/tiny_mce.js');; ?>

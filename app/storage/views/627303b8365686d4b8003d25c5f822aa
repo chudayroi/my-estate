@@ -1,0 +1,67 @@
+<?php $__env->startSection('css'); ?>
+<?php echo HTML::style('assets/css/dangtin.css');; ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('slider'); ?>
+<?php echo $__env->make('template.slider', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+<div class="container">
+   <div class="row">
+      <div class="col-sm-9 content-detail">
+         <?php echo $__env->make('template.tienich', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('dangtin/link-child', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         
+         <!--End .row-->
+         <div class="row hvr-wobble-horizontal">
+            <div class="col-sm-12 page-first">
+                  <div   class="arrowLine1 "><span class="title-page-first"></span></div>
+                  <div   class="arrowLine">
+                  <a href="<?php echo Asset('dangtin/list'); ?>"><span class="title-page-first">Đăng tin</span></a>
+                  </div>
+                  <div class="triangle_left"></div>
+            </div>
+         </div>
+   
+         <!--end .links-->
+          <!--sort-->
+         <?php echo $__env->make('dangtin.sort', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <!--End sort-->
+         <div class="product-lists">
+               <?php echo $__env->make('dangtin.product-list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         </div>
+         <?php echo $__env->make('template.pagination', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> 
+         <div class="about">
+            <div class="row">
+               <div class="col-sm-3 about-w">
+                  <div class="form-about">
+                     <h3>Giới thiệu</h3>
+                     <a href="#" class="btn btn-default">Liên Hệ</a>
+                  </div>
+               </div>
+               <div class="col-sm-9 shop-about">
+                  <p>
+                     Quốc hội bấm nút thông qua nhiều đạo luật quan trọng về đất đai, lần đầu tiên mở cửa cho người nước ngoài mua nhà, hứa hẹn sẽ tạo động lực mới, với khả năng một lượng vốn ngoại không nhỏ sẽ đổ vào thị trường trong tương lai gần.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <!--end .about-->
+      </div>
+      <!--End .main-content-->
+      <div class="col-sm-3 side-bar">
+         <?php echo $__env->make('template.side-bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      </div>
+      <!--End .side-bar-->
+   </div>
+   <!--End .row-->
+ 
+</div>
+<!--End .container-->
+
+<?php $__env->stopSection(); ?>
+
+
+  
+  
+<?php echo $__env->make('dangtin.basic', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

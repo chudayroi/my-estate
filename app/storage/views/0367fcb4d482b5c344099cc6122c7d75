@@ -1,0 +1,62 @@
+   <div class="form-batdongsanbytag">
+   <?php if(!empty($list)): ?>
+   <?php $i=0;?>
+   <?php foreach($list as $product): ?>
+   <?php $i++;?>
+   <div class="col-sm-12 batdongsanbytag hvr-glow hvr-box-shadow-inset hvr-overline-from-center" id="id_batdongsanbytag<?php echo $i; ?>">
+      <div class="col-sm-12 item-batdongsanbytag " id ="id_item_batdongsanbytag<?php echo $i; ?>">
+           
+         <div class="col-sm-2 image-batdongsanbytag" id="id_image_batdongsanbytag<?php echo $i; ?>">
+            <div class="row ">
+               <a href="<?php echo Asset($product['category_title']); ?>/<?php echo $product['city_title']; ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>" id="ai<?php echo $i; ?>">
+               <?php if(!empty($product['image'])): ?>
+               <img src="<?php echo asset('assets/img'); ?>/<?php echo $product['image']; ?>" class="img-responsive img-category-batdongsanbytag" alt="<?php echo $product['name']; ?>"/>
+               <?php else: ?>
+               <img src="<?php echo asset('assets/img'); ?>/tinbatdongsan.png" class="img-responsive img-category" alt="<?php echo $product['name']; ?>"/>
+               <?php endif; ?>
+               </a>
+            </div>
+         </div>
+         <div class="col-sm-10" id='title<?php echo $i; ?>'>
+            <div class="row title-batdongsanbytag">
+                <div class="col-sm-12 content-title-batdongsanbytag" id ="id_content_title_batdongsanbytag<?php echo $i; ?>">
+                  <a href="<?php echo Asset($product['category_title']); ?>/<?php echo $product['city_title']; ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>"><span class='span-bold-blue'><?php echo $product['title']; ?></span></a>
+               </div>
+                 <div class="col-sm-2 info2">
+                  <span class='span-bold'>DT:</span> <span><?php echo $product['area']; ?>m<sup>2</sup></span>
+              
+               </div>
+                <div class="col-sm-2 info2">
+               <span class='span-bold'>Giá:</span>
+                     <span class='span-bold-red'>
+                 <?php echo $product['amount']; ?>
+
+                  
+                  <?php echo $product['amount_unit']; ?>
+
+                  </span>
+               </div>
+               <div class="col-sm-3 info2">
+                  <span class='span-bold'>
+                  <?php echo $product['district']; ?>, <?php echo $product['city']; ?>
+
+                   </span>
+               </div>
+               <div class="col-sm-2 info3">
+               <span class='span-small-font '> <?php echo $product['startdate']; ?></span>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+  
+   <!--end .product-item-->
+   <?php endforeach; ?>
+   <?php else: ?>
+   <div class="col-sm-12"><span style="color:red">Không tìm thấy!</span></div>
+   <?php endif; ?>
+      </div>
+
+   
+<!--End .row-->
+

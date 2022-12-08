@@ -1,0 +1,143 @@
+      <div class="form-batdongsanbytag">
+   <?php if(!empty($list)): ?>
+   <?php $i=0;?>
+   <?php foreach($list as $product): ?>
+   <?php $i++;?>
+   <div class="col-sm-12 batdongsanbytag hvr-glow hvr-box-shadow-inset hvr-overline-from-center" id="id_batdongsanbytag<?php echo $product['id']; ?>">
+      <div class="col-sm-12 item-batdongsanbytag " id ="id_item_batdongsanbytag<?php echo $product['id']; ?>">
+            <div class="col-sm-12 content-title-batdongsanbytag" id ="id_content_title_batdongsanbytag<?php echo $product['id']; ?>">
+                  <a href="<?php echo Asset($product['category_title']); ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>"><span class='span-bold-blue'><?php echo $product['title']; ?></span></a>
+            </div>
+         <div class="col-sm-2 image-batdongsanbytag" id="id_image_batdongsanbytag<?php echo $product['id']; ?>">
+            <div class="row ">
+               <a href="<?php echo Asset($product['category_title']); ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>" id="ai<?php echo $product['id']; ?>">
+               <?php if(!empty($product['image'])): ?>
+               <img src="<?php echo asset('assets/img'); ?>/<?php echo $product['image']; ?>" class="img-responsive img-category-batdongsanbytag" alt="<?php echo $product['name']; ?>"/>
+               <?php else: ?>
+               <img src="<?php echo asset('assets/img'); ?>/tinbatdongsan.png" class="img-responsive img-category" alt="<?php echo $product['name']; ?>"/>
+               <?php endif; ?>
+               </a>
+            </div>
+         </div>
+         <div class="col-sm-8" id='title<?php echo $product['id']; ?>'>
+            <div class="row title-batdongsanbytag">
+               
+                 <div class="col-sm-2 info2">
+                  <span class='span-bold'>DT:</span> <span><?php echo $product['area']; ?>m<sup>2</sup></span>
+              
+               </div>
+                <div class="col-sm-3 info2">
+               <span class='span-bold'>Giá:</span>
+                     <span class='span-bold-red'>
+                 <?php echo $product['amount']; ?>
+
+                 
+                  <?php echo $product['amount_unit']; ?>
+
+                  </span>
+               </div>
+               <div class="col-sm-3 info2">
+                  <span class='span-bold'>
+                  <?php echo $product['district']; ?>, <?php echo $product['city']; ?>
+
+                   </span>
+               </div>
+            </div>
+
+         </div>
+          <div class="col-sm-2 pull-left" id="id_action<?php echo $product['id']; ?>">
+            <div class="col-sm-12 tools" id="tools<?php echo $product['id']; ?>">
+          <div class="col-sm-2 icon-edit" id="icon-edit<?php echo $product['id']; ?>">
+            <a class="" id="edit<?php echo $product['id']; ?>" title="Sửa" href="<?php echo asset('dangtin/edit'); ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>"><i class="glyphicon glyphicon-edit"></i></a>
+          </div>
+          <div class="col-sm-2 icon-up" id="icon-up<?php echo $product['id']; ?>">
+            <a class="btn-up" id="up<?php echo $product['id']; ?>" title="Up" href="#"><i class="glyphicon glyphicon-arrow-up"></i></a>
+          </div>
+          <div class="col-sm-2 icon-remove" id="icon-remove<?php echo $product['id']; ?>">
+            <a class="btn-delete" id="remove<?php echo $product['id']; ?>" href="#"><i class="glyphicon glyphicon-trash"></i></a>
+          </div>
+        </div>
+          </div>
+      </div>
+      </div>
+  
+   <!--end .product-item-->
+   <?php endforeach; ?>
+   <?php else: ?>
+   <div class="col-sm-12"><span style="color:red">Không tìm thấy!</span></div>
+   <?php endif; ?>
+      </div>
+<div class="pagination">
+  <?php if($currentpage !='1'): ?>
+  <a href="<?php echo asset("dangtin/list"); ?>/1" class="">First</a>
+  <?php endif; ?>
+  <?php if($currentpage > '1'): ?>
+  <a href="<?php echo asset("dangtin/list"); ?>/<?php echo $data['prepage']; ?>" class="prev"><i class="fa fa-arrow-left"></i></a>
+  <?php endif; ?>
+  <?php for($i=1;$i<=$totalpage;$i++): ?>
+  <?php if($i == $currentpage): ?>
+  <a class = "currentpage" href="<?php echo asset("dangtin/list"); ?>/<?php echo $i; ?>"><?php echo $i; ?></a> 
+  <?php else: ?>
+  <a class = "currentpage1" href="<?php echo asset("dangtin/list"); ?>/<?php echo $i; ?>"><?php echo $i; ?></a> 
+  <?php endif; ?>
+  <?php endfor; ?>
+   <?php if($currentpage < $totalpage): ?>
+  <a href="<?php echo asset("dangtin/list"); ?>/<?php echo $data['nextpage']; ?>" class="next"><i class="fa fa-arrow-right"></i></a>
+  <?php endif; ?>
+  <?php if($currentpage != $totalpage): ?>
+  <a href="<?php echo asset("dangtin/list"); ?>/<?php echo $data['totalpage']; ?>" class="last">Last</a>
+  <?php endif; ?>
+</div>
+<!-- pi -->
+   
+<!--End .row-->
+
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+   $(".btn-delete").click(function(event) {
+        event.preventDefault();
+        var id = this.id;
+         id = id.replace("remove", ""); 
+         $.ajax({
+            url : "<?php echo asset('dangtin/delete'); ?>",
+            type : 'post',
+            dataType: 'json',
+            data: {'id':id},
+            success : function (result){
+              $('#id_item_batdongsanbytag'+id).hide();
+            }
+        });
+    });
+ 
+$(".btn-up").click(function(event) {
+         event.preventDefault();
+         
+        var id = this.id;
+        id = id.replace("up", ""); 
+         $.ajax({
+            url : "<?php echo asset('dangtin/up'); ?>",
+            type : 'post',
+            dataType: 'json',
+            data: {'id':id},
+            success : function (result){
+              $('#totalup').html(result.total_uptin_conlai);
+              if(result.check_total_uptin ==0) {
+                  $('#uptatca').hide();
+                  $('#mualuotup').hide();
+                  $('#mualuotup1').show();
+                }
+               else  $('#up'+id).hide();
+            
+
+            }
+        });
+    });
+
+});
+
+</script>
+   
+<!--End .row-->
+

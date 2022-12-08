@@ -1,0 +1,114 @@
+	<div class="row" id="product_row">
+	<?php if(!empty($list)): ?>
+	<?php $i=0;?>
+	<?php foreach($list as $product): ?>
+	<?php $i++;?>
+
+		<div class="col-sm-3 product-item" id="id_product_item<?php echo $product['id']; ?>">
+			<div class="image" id="id_image<?php echo $product['id']; ?>">
+				<a href="<?php echo Asset('dangtin/detail'); ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>" id="ai<?php echo $product['id']; ?>">
+				<img src="<?php echo asset('assets/img'); ?>/<?php echo $product['image']; ?>" class="img-responsive" alt="<?php echo $product['name']; ?>"/>
+				</a>
+			</div>
+			<div class="title" id='title<?php echo $product['id']; ?>'>
+				<p id='p<?php echo $product['id']; ?>'><a href="<?php echo Asset('dangtin/detail'); ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>"><?php echo $product['title']; ?></a></p>
+			</div>
+			<div class="address" id="area<?php echo $product['id']; ?>">
+				<div class="icon" id="area_icon<?php echo $product['id']; ?>">
+					<i class="glyphicon glyphicon-th-large"></i>
+				</div>
+				<div class="info">
+					<?php echo $product['area']; ?>m<sup>2</sup>
+				</div>
+			</div>
+			<div class="address" id="amount<?php echo $product['id']; ?>">
+				<div class="icon" id="amount_icon<?php echo $product['id']; ?>">
+					<i class="glyphicon glyphicon-usd"></i>
+				</div>
+				<div class="info">
+					<?php 
+						if($product['amount_unit']==4) echo $product['amount']/1000;
+						else echo $product['amount'];
+					?>
+					 <?php echo $product['amount_unit']; ?>
+
+				</div>
+			</div>
+			
+			<div class="address" id="district<?php echo $product['id']; ?>">
+				<div class="icon1" id="district_icon<?php echo $product['id']; ?>">
+					<i class="glyphicon glyphicon-map-marker"></i>
+				</div>
+				<div class="info1" >
+					<?php echo $product['district']; ?>, <?php echo $product['city']; ?>
+
+				</div>
+			</div>
+			<div class="address" id="startdate<?php echo $product['id']; ?>">
+				<div class="icon" id="startdate_icon<?php echo $product['id']; ?>">
+					<i class="glyphicon glyphicon-time"></i>
+				</div>
+				<div class="info">
+					<?php echo $product['startdate']; ?>
+
+				</div>
+			</div>
+			<div class="row tools" id="tools<?php echo $product['id']; ?>">
+				<div class="col-sm-offset-1 col-sm-1 icon-edit" id="icon-edit<?php echo $product['id']; ?>">
+					<a class="" id="edit<?php echo $product['id']; ?>" title="Sửa" href="<?php echo asset('dangtin/edit'); ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>"><i class="glyphicon glyphicon-edit"></i></a>
+				</div>
+				<div class="col-sm-1 icon-remove" id="icon-remove<?php echo $product['id']; ?>">
+					<a class="" id="remove<?php echo $product['id']; ?>" data-toggle="modal" data-target="#modal<?php echo $product['id']; ?>"  href="#"><i class="glyphicon glyphicon-trash"></i></a>
+				</div>
+				
+					<!-- Modal -->
+					<div class="modal fade" id="modal<?php echo $product['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">Xóa Tin</h4>
+					      </div>
+					      <div class="modal-body">
+					        Bạn có chắc muốn xóa tin này?
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" id="<?php echo $product['id']; ?>" class="btn btn-default btn-delete" data-dismiss="modal" >Delete</button>
+					        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+					<!--End modal-->
+			</div>
+		</div>
+		<!--end .product-item-->
+		
+		<?php endforeach; ?>
+		<?php else: ?>
+		<div class="col-sm-12"><span style="color:red">Không tìm thấy!</span></div>
+		<?php endif; ?>
+
+	</div>
+<script type="text/javascript" >
+var totalpage = <?php echo $totalpage; ?>;
+$(document).ready(function(){
+	$(".btn-delete").click(function(event) {
+        event.preventDefault();
+        var id = this.id;
+         $.ajax({
+            url : "<?php echo asset('dangtin/delete'); ?>",
+            type : 'post',
+            dataType: 'json',
+            data: {'id':id},
+            success : function (result){
+            	$('#id_product_item'+id).hide();
+            }
+        });
+    });
+
+ });
+   //sear
+</script>
+	<!--End .row-->
+	

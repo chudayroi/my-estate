@@ -1,0 +1,35 @@
+<?php $__env->startSection('slider'); ?>
+<?php echo $__env->make('template.slider', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+<div class="container">
+   <div class="row">
+      <div class="col-sm-12 search-kinhnghiem">
+         <?php echo $__env->make('template.search', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.kinhnghiem', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-sm-9 main-content">
+         <!--project-->
+         <?php echo $__env->make('template.batdongsannoibat', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.batdongsanthuong', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.duannoibat', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      </div>
+      <!--End .main-content-->
+      <div class="col-sm-3 side-bar">
+         <?php echo $__env->make('template.tintucnoibat', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.lienketnoibat', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         
+      </div>
+      <!--End .side-bar-->
+   </div>
+   <!--End .row-->
+   <?php echo $__env->make('template.batdongsantinhtp', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</div>
+<!--End .container-->
+<!--End .news-->
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('template.basic', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

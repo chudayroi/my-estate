@@ -1,0 +1,36 @@
+<?php if(count($projects)>0): ?>
+<div class="promo">
+		<div class="page-first">
+	         <div   class="arrowLine1 "><span class="title-page-first"></span></div>
+			<div class="hvr-wobble-horizontal">
+			         
+			         <div   class="arrowLine">
+			         <a href="<?php echo Asset('du-an'); ?>"><span class="title-page-first">Dự án</span></a>
+			         </div>
+			         <div class="triangle_left"></div>
+		 	</div>
+		</div>
+	
+	<div class="row">
+	<?php foreach($projects as $project): ?>
+		<div class="col-sm-4">
+			<div class="project-image">
+				<a href="<?php echo asset('du-an'); ?>/<?php echo $project['city_title']; ?>/<?php echo $project['name']; ?>-<?php echo $project['id']; ?>">
+				<img class="img-responsive img-project" src="<?php echo asset('assets/img'); ?>/<?php echo $project['image']; ?>" alt="<?php echo $project['title']; ?>" />
+				</a>
+			</div>
+			<div class="project-title">
+				<a href="<?php echo asset('du-an/'); ?>/<?php echo $project['city_title']; ?>/<?php echo $project['name']; ?>-<?php echo $project['id']; ?>"><?php echo $project['title']; ?></a>
+			</div>
+			<div class="project-info">
+				Ngày đăng: <?php echo $project['startdate']; ?>
+
+			</div>
+		</div>
+		
+	<?php endforeach; ?>
+	</div>
+	
+	<!--End .row-->
+</div>
+<?php endif; ?>

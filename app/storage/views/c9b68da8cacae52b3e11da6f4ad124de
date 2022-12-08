@@ -1,0 +1,77 @@
+<?php $__env->startSection('css'); ?>
+<?php echo HTML::style('assets/css/dangtin.css');; ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+<div class="container">
+   <div class="row">
+      <div class="col-sm-9 content-detail">
+        <div class='col-sm-12 category-batdongsannoibat'>
+      <span class='span-batdongsannoibat'>Mua Lượt Up Tin</span>
+   </div>
+         <div data-example-id="striped-table" class=" col-sm-12 mualuotuptin">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Số Tiền</th>
+          <th>Lượt UP</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php $i=0;?>
+         <?php foreach($program_uptin as $program): ?>
+          <?php $i++;?>
+        <tr>
+          <th scope="row"><?php echo $i; ?></th>
+          <td>$<?php echo number_format($program['amount'],0); ?></td>
+          <td><?php echo number_format($program['total'],0); ?></td>
+          <td><button type="button" id = "mua<?php echo $program['id']; ?>" class="btn btn-primary btn-sm btn-mua">Mua</button></td>
+        </tr>
+         <?php endforeach; ?>
+
+       
+      </tbody>
+    </table>
+  </div>
+  <div style="display:none" class="col-sm-12 mualuotupthanhcong"><span style="color:red">Mua Thành Công!</span></div>
+      </div>
+      <!--End .main-content-->
+      <div class="col-sm-3 side-bar">
+         <?php echo $__env->make('category.search-sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.tintucnoibat', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.batdongsanxemnhieunhat', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      </div>
+      <!--End .side-bar-->
+
+   </div>
+  
+</div>
+<!--End .container-->
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('js'); ?>
+$(".btn-mua").click(function(event) {
+         event.preventDefault();
+        var id = this.id;
+        id = id.replace("mua", "");
+        $('.mualuotuptin').hide();
+         $.ajax({
+            url : "<?php echo asset('dangtin/mualuotup'); ?>",
+            type : 'post',
+            dataType: 'json',
+            data: {'id':id},
+            success : function (result){
+              $('.mualuotuptin').hide();
+              $('.mualuotupthanhcong').show();
+            }
+        });
+    });
+
+<?php $__env->stopSection(); ?>
+
+  
+  
+<?php echo $__env->make('dangtin.basic', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

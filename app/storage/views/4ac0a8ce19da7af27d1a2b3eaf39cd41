@@ -1,0 +1,480 @@
+<?php $__env->startSection('css'); ?>
+<?php echo HTML::style('assets/css/dangtin.css');; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+   <div class="row">
+      <div class="col-sm-9 content-detail">
+
+         
+         <?php echo $__env->make('tintuc/link-child', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <!--end .links-->
+         <div class="info">
+            <div class="panel panel-info">
+               <!-- Default panel contents -->
+               <div class="panel-heading">
+                  <i class="fa fa-desktop fa-icon"></i>
+                  <span class="content-title">Nhập thông tin</span>
+               </div>
+               <div class="panel-body">
+                  <form id="form-upload" action="<?php echo Asset('tintuc/uploadimagenews'); ?>" method="POST" role="form" enctype="multipart/form-data">
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <div class="form-group">
+                              <label  for="title">Tiêu đề <sup><i class="glyphicon glyphicon-asterisk required"></i></sup></label>
+                              <div class="">
+                                 <input type="text" class="form-control" id="title"  name="title" value="" placeholder="">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <label class="" for="category">Hạng mục</label>
+                              <div class="">
+                                 <select class="form-control" id="category" name="category" >
+                                    <?php foreach($news_category as $category): ?>
+                                       <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
+                                    <?php endforeach; ?>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-group">
+                              <label class="type" for="type">Loại</label>
+                              <div class="">
+                                 <select class="form-control" id="item" name="item" >
+                                    <option value=""></option>
+                                       <?php foreach($news_item as $item): ?>
+                                       <option value="<?php echo $item['id']; ?>"><?php echo $item['name']; ?></option>
+                                    <?php endforeach; ?>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div class="form-group" id="news_group" style="display:none">
+                              <label class="type" for="type">Nhóm</label>
+                              <div class="">
+                                 <select class="form-control" id="group" name="group" >
+                                    <option value=""></option>
+
+                                     <?php foreach($news_group as $group): ?>
+                                       <option value="<?php echo $group['id']; ?>"><?php echo $group['name']; ?></option>
+                                    <?php endforeach; ?>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!--End .row-->
+                     <div class="row">
+                        <div class="col-sm-12">
+                           <div class="form-group">
+                              <label class="diachi-label"  for="title">Thời gian đăng tin</label>
+                              <div class="line">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <label class="" for="title">Ngày bắt đầu <sup><i class="glyphicon glyphicon-asterisk required"></i></sup></label>
+                              <div class="">
+                                 <input type="" class="form-control" id="datepicker_start" name="datepicker_start" value="<?php echo $startdate; ?>" placeholder="">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <label class="" for="title">Ngày kết thúc</label>
+                              <div class="">
+                                 <input type="" class="form-control" id="datepicker_finish" name="datepicker_finish" value="<?php echo $enddate; ?>" placeholder="">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!--End .row-->
+                     <div class="row">
+                        <div class="col-sm-offset-12">
+                           <div class="form-group">
+                              <div class="line">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                      <div class="row">
+                           <div class="col-sm-12 form-group">
+                              <label class="" for="title">Nội dung tóm tắt<sup><i class="glyphicon glyphicon-asterisk required"></i></sup></label>
+                              <div class="">
+                                 <textarea id="content_summary" name="content_summary" value="" class="form-control ckeditor" rows="3"></textarea>
+                              </div>
+                           </div>
+                     </div>
+                     <div class="row">
+                        
+                           <div class="col-sm-12 form-group">
+                              <label class="" for="title">Nội dung <sup><i class="glyphicon glyphicon-asterisk required"></i></sup></label>
+                              <div class="">
+                                 <textarea id="content" name="content" value="" class="form-control ckeditor" rows="3"></textarea>
+                              </div>
+                           </div>
+                       
+                     </div>
+                     <div class="row">
+                           <div class="col-sm-12 form-group">
+                              <label class="" for="title">Tags</label>
+                              <div class="">
+                                 <textarea id="tags" name="tags" value="" class="form-control fixed ckeditor" rows="1"></textarea>
+                              </div>
+                           </div>
+                       
+                     </div>
+                     <div class="row">
+                           <div class="col-sm-12 form-group">
+                              <label class="upload-label"  for="title">Upload ảnh</label>
+                              <div class="line">
+                              </div>
+                           </div>
+                     </div>
+                     <div class="row">
+                           <div class="col-sm-12 form-group">
+                              <div class="col-sm-4">
+                                 <input type="file" id="file" name="file">
+                              </div>
+                              <div class="col-sm-1">                                    
+                                 <input type="submit" id="submit-upload"  value="Upload"   title="">
+                              </div>
+                             
+                           </div>
+                     </div>
+                                         
+                     <div class="row">
+                        <div id="image-lists" class="image-lists" >
+                           <div class="col-sm-offset-1 col-sm-12 " >
+                              <?php for($j=1;$j<'6';$j++): ?>
+                              <div class="col-sm-2"  id="divimage<?php echo $j; ?>" style ="display:none">
+                                 <img id='image<?php echo $j; ?>' src="" width='100px' height='100px' alt='delete'/>
+                                 <button  type="button" id="remove-img<?php echo $j; ?>" class="btn btn-link"><i class="glyphicon glyphicon-remove "></i></button>
+                                 <input type="text" style ="display:none" class="form-control" id="img<?php echo $j; ?>" name="img<?php echo $j; ?>" value ="" placeholder="">
+                              </div>
+                              <?php endfor; ?>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                         <div class="col-sm-5">
+                           <div class="warning-upload" >
+                              <div class="alert alert-warning alert-dismissible" role="alert">
+                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                 <strong>Chú ý!</strong> Hãy chọn ảnh.
+                              </div>
+                           </div>
+                           <div class="ibars" id="ibars" style="display:none" >
+                              <div id= "progress" class="progress">
+                                 <div id="bar" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                    0% 
+                                 </div>
+                              </div>
+                           </div>
+                           <span style="float:center" class="process" >Saving</span>
+                        </div>
+                        <div class="col-sm-offset-3 col-sm-4">
+                           <button type="button" id="submit-save" class="btn btn-success">Lưu</button>
+                           <button type="button" id="submit-cancel" class="btn btn-danger">Hủy</button>
+                        </div>
+                        
+                     </div><!--End row-->
+                     <div class="row">
+                        <div class="col-sm-offset-2 col-sm-6 edit-dangtin" >
+                           <div class="alert alert-success alert-dismissible" role="alert">
+                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                 <strong>Đã lưu!</strong> <a href="#" class="alert-link">Click để thay đổi. </a>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </form>
+               </div>
+            </div>
+            <!--end panel-info-->
+         </div>
+         <!--End .dangtin-->
+      </div>
+      <!--End .main-content-->
+      <div class="col-sm-3 side-bar">
+         <?php echo $__env->make('category.search-sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.tintucnoibat', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.batdongsanxemnhieunhat', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.flagcounter', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         
+      </div>
+      <!--End .side-bar-->
+   </div>
+   <!--End .row-->
+</div>
+<!--End .container-->
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('js'); ?>
+var href = "<?php echo asset('/'); ?>/tintuc/edit/";
+var src = "<?php echo asset('/'); ?>/assets/img/news/";
+//uploadhinh
+$("#submit-upload").click(function () {
+   var filename = $("#file").val();
+      var bar = $('#bar');
+      if(filename!=''){
+         $("#ibars").show();
+      }
+      $('#form-upload').ajaxForm({
+      // Do something before uploading
+       beforeUpload: function() {
+         if(filename.length >0){
+            bar.empty();
+            bar.attr("style","width =0%");
+            bar.html('0');
+         }
+      },
+         uploadProgress: function(event, position, total, percentComplete) {
+           if(filename.length >0){
+              var percentValue = percentComplete + '%';
+              bar.width(percentValue)
+              bar.html(percentValue);
+            }
+         },
+         success: function() {
+            if(filename.length >0){
+              var percentValue = '100%';
+              bar.width(percentValue)
+              bar.html(percentValue);
+            }
+         },
+      //End before upload
+      complete: function(result) {   
+      var file_name = result.responseText;
+      if(file_name =='error') {
+         $("#ibars").hide();
+         $('.warning-upload').show();
+         setTimeout(function() {
+           $('.warning-upload').hide();
+         }, 2000);
+      }
+      else{
+      var imagepath = src+file_name;
+         var img1 = $("#img1").val();
+         var img2 = $("#img2").val();
+         var img3 = $("#img3").val();
+         var img4 = $("#img4").val();
+         var img5 = $("#img5").val();
+         if( img1==''){
+            $('#divimage1').show();
+            $('#image1').attr("src",imagepath);
+            $("#img1").val(file_name);
+         }//end if img1
+         else if(img2 ==''){
+            $('#divimage2').show();
+            $('#image2').attr("src",imagepath);
+            $("#img2").val(file_name);
+         }//end if img2
+         else if(img3 ==''){
+            $('#divimage3').show();
+            $('#image3').attr("src",imagepath);
+            $("#img3").val(file_name);
+         }//end if img3
+         else if(img4 ==''){
+            $('#divimage4').show();
+            $('#image4').attr("src",imagepath);
+            $("#img4").val(file_name);
+         }//end if img4
+         else if(img5 ==''){
+            $('#divimage5').show();
+            $('#image5').attr("src",imagepath);
+            $("#img5").val(file_name);
+         }//end if img5
+         $("#file").val("");
+         setTimeout(function() {
+            $("#ibars").hide();
+            $('#bar').width('0%')
+            $('#bar').html(0);
+         }, 2000);
+         }
+      }//end complete
+      });
+  
+});
+//upload hinh
+//remove image
+$("#remove-img1").click(function () {
+   $('#divimage1').hide();
+   $("#img1").val("");
+});
+$("#remove-img2").click(function () {
+   $('#divimage2').hide();
+   $("#img2").val("");
+});
+$("#remove-img3").click(function () {
+   $('#divimage3').hide();
+   $("#img3").val("");
+});
+$("#remove-img4").click(function () {
+   $('#divimage4').hide();
+   $("#img4").val("");
+});
+$("#remove-img5").click(function () {
+   $('#divimage5').hide();
+   $("#img5").val("");
+});
+//End remove image
+
+
+
+//submitsave
+$("#submit-save").click(function () {
+//validate
+   $("#form-upload").validate({
+       rules:{
+            title:{
+                required:true,
+                minlength:10
+            },
+            
+            content:{
+                required:true,
+                minlength:10
+            },
+            content_summary:{
+                required:true,
+                minlength:10
+            }
+      },
+        messages: {
+           title:{
+                required:"Nhập Tiêu đề.",
+                minlength:"Phải tối thiểu 10 ký tự."
+            },
+            content:{
+                required:"Nhập Nội dung.",
+                minlength:"Phải tối thiểu 10 ký tự."
+            },
+            content_summary:{
+                required:"Nhập Nội dung tóm tắt.",
+                minlength:"Phải tối thiểu 10 ký tự."
+            }
+        }
+   });
+      $("#form-upload").valid();
+
+//End validate
+   var city_id =  $('#city').val();
+    var data = $('#form-upload').serialize();
+   $(".process").text('Saving');
+    $(".process").show();
+   $.ajax({
+                    url : "<?php echo asset('tintuc/createnews'); ?>",
+                    type : 'post',
+                    dataType: 'json',
+                    data:data,
+                    success : function (result){
+                        if(result.report){
+                           $(".process").text('Finish');
+                           var link = href+'news-'+ result.news_id;
+                           $('a.alert-link').attr("href",link);
+
+                           setTimeout(function() {
+                              $(".process").hide();
+                              $('#form-upload').resetForm();
+                              $('#divimage1').hide();
+                              $('#divimage2').hide();
+                              $('#divimage3').hide();
+                              $('#divimage4').hide();
+                              $('#divimage5').hide();
+                              $('#image1').attr("src","");
+                              $('#image2').attr("src","");
+                              $('#image3').attr("src","");
+                              $('#image4').attr("src","");
+                              $('#image5').attr("src","");
+                              $(".edit-dangtin").show();
+                           }, 2000);
+                           setTimeout(function() {
+                              $(".edit-dangtin").hide();
+                           }, 100000);
+                        }//end if true
+                        else{
+                           $(".process").text('Error');
+                           setTimeout(function() {
+                              $(".process").hide();
+                              $("html, body").animate({ scrollTop: 0 }, "slow");
+                           }, 2000);
+                        }
+                    }//End success
+         });//End ajax
+});
+//End submit save
+$('#category').change(function(event){
+      event.preventDefault();
+      var category_id =  $('#category').val();
+      $('#item').empty();
+      $('#item')
+         .append($("<option></option>")
+         .attr("value","")
+         .attr("style","color:gray")
+         .text("Chọn Loại")
+         ); //End $('#item')
+         $.ajax({
+                    url : "<?php echo asset('first/loaditem'); ?>",
+                    type : 'get',
+                    dataType: 'json',
+                    data:{category_id:category_id},
+                    success : function (result){
+                     $.each(result, function(index, val) {
+                         $('#item')
+                           .append($("<option></option>")
+                           .attr("value",val.id)
+                           .text(val.name)
+                       ); //End $('#category_id')
+                     });//End $.each(result, function(index, val)
+                     
+                    }//End success
+         });//End ajax
+   });//End $('#category_id').change(function(event)
+   $('#item').change(function(event){
+      event.preventDefault();
+      var item_id =  $('#item').val();
+      $('#group').empty();
+      $('#group')
+         .append($("<option></option>")
+         .attr("value","")
+         .attr("style","color:gray")
+         .text("Chọn Nhóm")
+         ); //End $('#item')
+         $.ajax({
+                    url : "<?php echo asset('first/loadgroup'); ?>",
+                    type : 'get',
+                    dataType: 'json',
+                    data:{item_id:item_id},
+                    success : function (result){
+                    if(result.length < 1) $('#news_group').hide();
+                    else {
+                      $('#news_group').show();
+                     $.each(result, function(index, val) {
+                         $('#group')
+                           .append($("<option></option>")
+                           .attr("value",val.id)
+                           .text(val.name)
+                       ); //End $('#item')
+                     });//End $.each(result, function(index, val)
+                     }//End else
+                    }//End success
+         });//End ajax
+   });//End $('#item').change(function(event)
+<?php $__env->stopSection(); ?>
+
+  
+  
+<?php echo $__env->make('tintuc.basic', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

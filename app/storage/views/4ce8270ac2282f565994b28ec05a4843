@@ -1,0 +1,30 @@
+
+<?php if($totalpage>0): ?>
+<div class="pagination">
+<div class="row">
+<input type="text"  style="display:none" class="form-control" id="currentpage"  name="currentpage" value="1" placeholder="">
+</div>
+            
+<div class="row">
+<div class="btn-group btn-group-sm btnpage" role="group" aria-label="..."><button id="first" type="button" class="btn btn-link first">Đầu tiên</button>
+<button id= "pre" type="button" class="btn btn-link pre btn-pagination"><i class="glyphicon glyphicon-hand-left"></i></button>
+<?php for($i=1;$i<=$totalpage;$i++): ?>
+<?php if($i==1): ?>
+<button id="<?php echo $i; ?>" type="button" class="btn btn-link page btn-pagination"><?php echo $i; ?></button>
+<?php else: ?>
+<button id="<?php echo $i; ?>"type="button" class="btn btn-link btn-pagination"><?php echo $i; ?></button>
+<?php endif; ?>
+<?php endfor; ?>
+<?php if($totalpage>1): ?>
+<button id="next" type="button" class="btn btn-link next btn-pagination"><i class="glyphicon glyphicon-hand-right"></i></button>
+<button id="end" type="button" class="btn btn-link end btn-pagination">Cuối</button>
+<?php endif; ?>
+</div>
+<span class="process" >Loading</span>
+
+</div>
+</div>
+<?php endif; ?>
+<?php $__env->startSection('js'); ?>
+var totalpage = <?php echo $totalpage; ?>;
+<?php $__env->stopSection(); ?>

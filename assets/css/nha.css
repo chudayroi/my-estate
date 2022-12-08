@@ -1,0 +1,29 @@
+.content-detail .facility{
+	float: left;
+	
+	text-align: center;
+	
+	
+}
+.content-detail .facility a{
+
+	text-decoration: none;
+}
+.content-detail .slider-image {
+	width:700px;
+	border-radius: 5px;
+	margin: 40px 80px 80px 80px;
+}
+
+
+.content-detail .content-title{
+	color:#F2532F;
+	padding-left: 10px;
+}
+
+.content-detail .detail .content-title{
+	font-size: 18px;
+}
+.detail .icon-flag{
+	color: #EFDCCE;
+}

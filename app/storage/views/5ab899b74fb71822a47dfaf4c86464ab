@@ -1,0 +1,35 @@
+   <div class="page-first">
+   		<?php if(!empty($info_category)): ?>
+         <div class="hvr-wobble-horizontal">
+             <div   class="arrowLine1"><span class="title-page-first"></span></div>
+             <div   class="arrowLine">
+             <a href="<?php echo Asset($info_category->title); ?>"><span class="title-page-first">Tìm Kiếm</span></a>
+             </div>
+             <div class="triangle_left"></div>
+         </div>
+        <?php if(!empty($citys->name)): ?>
+        <div class="hvr-wobble-horizontal">
+             <div class="triangle_left1"></div>
+             <?php if(strlen($citys->title)>8): ?>
+             <div class="arrowLine2"><a href="<?php echo Asset($info_category->title); ?>/<?php echo $citys->title; ?>"><span class="title-page-current"><?php echo $citys->name; ?></span></a></div>
+             <?php else: ?>
+             <div class="arrowLine"><a href="<?php echo Asset($info_category->title); ?>/<?php echo $citys->title; ?>"><span class="title-page-current"><?php echo $citys->name; ?></span></a></div>
+             <?php endif; ?>
+             <div class="triangle_left"></div>
+         </div>
+        <?php endif; ?>
+        <?php else: ?>
+        <?php if(!empty($citys->name)): ?>
+        <div class="hvr-wobble-horizontal">
+             <div   class="arrowLine1"><span class="title-page-first"></span></div>
+             <?php if(strlen($citys->title)>8): ?>
+             <div class="arrowLine2"><a href="<?php echo Asset($citys->title); ?>"><span class="title-page-current"><?php echo $citys->name; ?></span></a></div>
+             <?php else: ?>
+             <div class="arrowLine"><a href="<?php echo Asset($citys->title); ?>"><span class="title-page-current"><?php echo $citys->name; ?></span></a></div>
+             <?php endif; ?>
+             <div class="triangle_left"></div>
+         </div>
+        <?php endif; ?>
+        <?php endif; ?>
+        
+   </div>

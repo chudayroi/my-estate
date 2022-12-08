@@ -1,0 +1,66 @@
+<div class="col-sm-12 batdongsanthuong" id="id_batdongsanthuong">
+   <div class='col-sm-12 category-batdongsanthuong' id='id_category_batdongsanthuong'>
+      <span class='span-batdongsanthuong' id="id_span_batdongsanthuong">BẤT ĐỘNG SẢN KHÁC</span>
+   </div>
+<div class="form-batdongsanthuong" id ="id_form_batdongsanthuong">
+   
+   <?php if(!empty($list)): ?>
+   <?php $i=0;?>
+   <?php foreach($list as $product): ?>
+   <?php $i++;?>
+   <div class="col-sm-12 content-batdongsanthuong " id="id_content_batdongsanthuong<?php echo $i; ?>">
+      <div class="col-sm-12 item-batdongsanthuong hvr-glow hvr-box-shadow-inset hvr-overline-from-center" id="id_item_batdongsanthuong<?php echo $i; ?>">
+        
+         <div class="col-sm-2 image-batdongsanthuong" id="id_image_batdongsanthuong<?php echo $i; ?>">
+            <div class="row" id="id_row<?php echo $i; ?>">
+               <a href="<?php echo Asset($product['category_title']); ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>" id="ai<?php echo $i; ?>">
+               <?php if(!empty($product['image'])): ?>
+               <img src="<?php echo asset('assets/img'); ?>/<?php echo $product['image']; ?>" class="img-responsive img-category-batdongsanthuong" alt="<?php echo $product['name']; ?>"/>
+               <?php else: ?>
+               <img src="<?php echo asset('assets/img'); ?>/tinbatdongsan.png" class="img-responsive img-category" alt="<?php echo $product['name']; ?>"/>
+               <?php endif; ?>
+               </a>
+            </div>
+         </div>
+         <div class="col-sm-10" id='id_detail_batdongsanthuong<?php echo $i; ?>'>
+            <div class="row title-batdongsanthuong" id='id_title_batdongsanthuong<?php echo $i; ?>'>
+                <div class="col-sm-12 content-title-batdongsanthuong" id="id_content-title-batdongsanthuong<?php echo $i; ?>">
+                  <a  class="link" id= "id_link" href="<?php echo Asset($product['category_title']); ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>"><span class='span-bold-blue'><?php echo $product['title']; ?></span></a>
+               </div>
+               <div class="col-sm-2 info">
+                  <span class='span-bold'>DT:</span> <span id="id_area<?php echo $i; ?>"><?php echo $product['area']; ?>m<sup>2</sup></span>
+               </div>
+               <div class="col-sm-2 info">
+               <span class='span-bold'>Giá:</span>
+                     <span class='span-bold-red'>
+                 <?php echo $product['amount']; ?>
+
+                     
+                  <?php echo $product['amount_unit']; ?>
+
+                  </span>
+               </div>
+               <div class="col-sm-3 info">
+                  <span class='span-bold'>
+                  <?php echo $product['district']; ?>, <?php echo $product['city']; ?>
+
+                   </span>
+               </div>
+                <div class="col-sm-2 info3">
+               <span class='span-small-font '> <?php echo $product['startdate']; ?></span>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!--end .product-item-->
+   <?php endforeach; ?>
+   <?php else: ?>
+   <div class="col-sm-12"><span style="color:red">Không tìm thấy!</span></div>
+   <?php endif; ?>
+</div>
+ 
+</div>
+
+<!--End .row-->
+

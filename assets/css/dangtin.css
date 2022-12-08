@@ -1,0 +1,50 @@
+
+/*nhadat*/
+section.content{
+	padding: 40px 0px;
+}
+
+/*info*/
+.content-detail .info {
+	padding-top: 50px;
+}
+.content-detail .info .content-title{
+	font-size: 18px;
+	padding-left: 5px;
+}
+ .content-detail .info .diachi-label{
+
+	color: #5C636B;
+}
+.content-detail .icon-pencil{
+	color: #F2532F;
+}
+ .content-detail .info .line{
+
+	padding: 0px;
+	height: 1px;
+	border-bottom: 1px solid #e1e1e1;
+}
+.required {
+	color:#F2532F;
+	font-size: 5px;
+}
+
+.tools{
+	padding-left: 0px;
+	margin-top: 10px;
+	border-bottom: 1px solid #e1e1e1;
+}
+.date-time{
+	padding-top: 10px;
+	padding-left: 0px;
+	border-bottom: 1px solid #e1e1e1;
+	border-top: 1px solid #e1e1e1;
+}
+.currentpage {
+	color: #F2532F;
+}
+.content-detail .icon-warning{
+	color: #C9302C;
+	font-size:30px;
+}

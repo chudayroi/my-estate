@@ -1,0 +1,190 @@
+
+<div class="row category-panel-batdongsanxemnhieunhat">
+<div class="panel panel-danger">
+<div class="panel-heading">
+<h3 class="panel-title">TÌM KIẾM NHÀ ĐẤT</h3>
+</div>
+ <div class="panel-body custom-body">
+   <form method ="post" id="side_bar" action="<?php echo Asset('bat-dong-san/search'); ?>" class="form-horizontal">
+		<div class="form-group" >
+			<label style="padding-left:0px" for="category" class="col-sm-5 control-label">Hạng mục</label>
+			<div style="padding-left:0px"  class="col-sm-7" >
+				<select class="form-control" id="category" name="category" >
+					<option style="color:gray" value="">Chọn hạng mục</option>
+                    <?php foreach($categories as $category): ?>
+                    <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="type" class="col-sm-5 control-label">Hình thức</label>
+			<div class="col-sm-7" style="padding-left:0px" >
+				 <select class="form-control" id="type" name="type" >
+					<option style="color:gray" value="">Chọn Hình thức</option>
+                    <?php foreach($types as $type): ?>
+                    <option value="<?php echo $type['id']; ?>"><?php echo $type['name']; ?></option>
+                    <?php endforeach; ?>
+                    </select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="city" class="col-sm-5 control-label">Tỉnh/TP</label>
+			<div class="col-sm-7" style="padding-left:0px" >
+				<select class="form-control" id="city" name="city">
+					<option style="color:gray" value="">Chọn Tỉnh/TP</option>
+					<?php foreach($cityinfo as $city): ?>
+					<option value="<?php echo $city['id']; ?>"><?php echo $city['name']; ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+		</div>
+		<div class="form-group" id="display-sibar-district">
+			<label for="district" class="col-sm-5 control-label">Quận/Huyện</label>
+			<div class="col-sm-7" style="padding-left:0px" >
+
+				<select class="form-control" id="district" name="district" >
+					<option style="color:gray" value="">Chọn Quận/Huyện</option>
+					<?php foreach($districts as $district): ?>
+					<option value="<?php echo $district['id']; ?>"><?php echo $district['name']; ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+		</div>
+		<div class="form-group" id="display-sibar-street">
+			<label for="street" class="col-sm-5 control-label">Đường</label>
+			<div class="col-sm-7" style="padding-left:0px" >
+
+				<select class="form-control" id="street" name="street" >
+					<option style="color:gray" value="">Chọn Đường</option>
+					 <?php foreach($streetinfo as $street): ?>
+                    <option value="<?php echo $street['id']; ?>"><?php echo $street['name']; ?></option>
+                    <?php endforeach; ?>
+                    
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="area" class="col-sm-5 control-label">Diện tích</label>
+			<div class="col-sm-7" style="padding-left:0px" >
+				<select class="form-control" id="area" name="area" >
+					<option style="color:gray" value="">Chọn Diện tích</option>
+					<?php foreach($areas as $area): ?>
+					<option value="<?php echo $area['id']; ?>"><?php echo $area['name']; ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="amount" class="col-sm-5 control-label">Giá</label>
+			<div class="col-sm-7" style="padding-left:0px" >
+				<select class="form-control" id="amount" name="amount" >
+					<option style="color:gray" value="">Chọn Giá</option>
+					<?php foreach($amounts as $amount): ?>
+					<option value="<?php echo $amount['id']; ?>"><?php echo $amount['name']; ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-3 col-sm-9">
+			<input type="submit" class="btn btn-info" value="Tìm">
+			<button id="btnclear" name="btnclear" class="btn btn-default">Làm trắng</button>
+			</div>
+		</div>
+	</form>
+</div><!--End panel-body-->
+</div>
+</div>
+<script type="text/javascript">
+//side bar
+	$('#category').val('<?php echo $info_search['category']; ?>');
+	$('#type').val('<?php echo $info_search['type']; ?>');
+	$('#city').val('<?php echo $info_search['city']; ?>');
+	var district = '<?php echo $info_search['district']; ?>';
+	if(district !='') $('#display-sibar-district').show();
+	$('#district').val('<?php echo $info_search['district']; ?>');
+	$('#street').val('<?php echo $info_search['street']; ?>');
+	$('#area').val('<?php echo $info_search['area']; ?>');
+	$('#amount').val('<?php echo $info_search['amount']; ?>');
+	
+	
+   $('#sibar_city').change(function(event){
+
+   	event.preventDefault();
+     var city_id =  $('#city').val();
+     $('#district').empty();
+ 		$('#sibar_district')
+			.append($("<option></option>")
+			.attr("value","")
+			.attr("style","color:gray")
+			.text("Chọn Quận/Huyện")
+			); //End $('#sibar-quanhuyen')
+        
+
+         $.ajax({
+                    url : "<?php echo asset('first/loadDistrict'); ?>",
+                    type : 'get',
+                    dataType: 'json',
+                    data:{city_id:city_id},
+                    success : function (result){
+
+                     $.each(result, function(index, val) {
+                         $('#district')
+                           .append($("<option></option>")
+                           .attr("value",val.id)
+                           .text(val.name)
+                       ); //End $('#quanhuyen')
+                     });//End $.each(result, function(index, val)
+                     
+                    }//End success
+         });//End ajax
+   });//End $('#tinhtp').change(function(event)
+   //street
+$('#district').change(function(event){
+
+   	event.preventDefault();
+     var district_id =  $('#district').val();
+     $('#street').empty();
+ 		$('#sibar_street')
+			.append($("<option></option>")
+			.attr("value","")
+			.attr("style","color:gray")
+			.text("Chọn Đường")
+			); //End $('#sibar-quanhuyen')
+        
+
+         $.ajax({
+                    url : "<?php echo asset('first/loadStreet'); ?>",
+                    type : 'get',
+                    dataType: 'json',
+                    data:{district_id:district_id},
+                    success : function (result){
+
+                     $.each(result, function(index, val) {
+                         $('#street')
+                           .append($("<option></option>")
+                           .attr("value",val.id)
+                           .text(val.name)
+                       ); //End $('#quanhuyen')
+                     });//End $.each(result, function(index, val)
+                     
+                    }//End success
+         });//End ajax
+   });//End $('#tinhtp').change(function(event)
+   //end street
+   $('#btnclear').click(function(event) {
+   		event.preventDefault();
+   		$('#bar').attr('action', '<?php echo Asset('timkiem'); ?>'); 
+		$('#category').val('');
+		$('#type').val('');
+		$('#city').val('');
+		$('#display-sibar-district').hide();
+		$('#district').val('');
+		$('#street').val('');
+		$('#area').val('');
+		$('#amount').val('');
+
+   });
+   //search  sider-bar
+</script>

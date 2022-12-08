@@ -1,0 +1,9 @@
+{{HTML::script('assets/js/jquery-2.0.3.min.js');}}
+{{HTML::script('assets/js/bootstrap.min.js');}}
+{{HTML::script('assets/js/moment.js');}}
+{{HTML::script('assets/js/jquery-form.js');}}
+{{HTML::script('assets/js/jquery.ui.js');}}
+{{HTML::script('assets/js/main.js');}}
+{{HTML::script('assets/js/jquery-validate/jquery.validate.js');}}
+{{HTML::script('assets/js/bootstrap-datepicker.js');}}
+{{HTML::script('assets/editor/jscripts/tiny_mce/tiny_mce.js');}}

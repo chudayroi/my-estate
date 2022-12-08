@@ -1,0 +1,172 @@
+<?php $__env->startSection('slider'); ?>
+<?php echo $__env->make('template.slider', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
+<div class="container">
+      <div class="row">
+   
+  
+      <div class="col-sm-9 news-block">
+      <?php echo $__env->make('tintuc.link-category', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      <div class="row">
+        <?php if(!empty($product_hot)): ?>
+        <div class="col-sm-8 news-hot">
+         <div class="image-hot" id="id_image">
+            <a href="<?php echo Asset('tintuc'); ?>/<?php echo $product_hot->category_title; ?>/<?php echo $product_hot->name; ?>-<?php echo $product_hot->id; ?>" id="ai">
+               <img src="<?php echo Asset('assets'); ?>/img/news/<?php echo $product_hot->image; ?>" class="img-responsive img-hot-responsive" alt="<?php echo $product_hot->name; ?>"/>
+            </a>
+         </div>  
+         <div class="news-hot-title">
+            <a href="<?php echo Asset('tintuc'); ?>/<?php echo $product_hot->category_title; ?>/<?php echo $product_hot->name; ?>-<?php echo $product_hot->id; ?>" id="ai">
+              <h4 class="hot-title"><?php echo $product_hot->title; ?></h4>
+            </a>
+         </div>
+         <div>
+           <?php echo $product_hot->content_summary; ?>
+
+         </div>
+          </div><!--End .col-sm-8-->
+          <?php endif; ?>
+          <div class="col-sm-4 most-viewed-link">
+              <ul class="list-unstyled ">
+              <?php if(!empty($product_common)): ?>
+              <?php foreach($product_common as $product): ?>
+                <li class="viewed-link">
+                  <a href="<?php echo Asset($product->category_title); ?>/<?php echo $product->name; ?>-<?php echo $product->id; ?>" id="btn-news-categoty-top" class="" >
+                  <span class="viewed-name"><?php echo $product->title; ?></span>
+                  </a>
+                </li>
+                <?php endforeach; ?>
+                <?php endif; ?>
+              </ul>
+          </div><!--End .most-viewed-link-->
+         </div><!--End .row-->
+         <div class="row line"></div>
+         <div class="col-sm-7 news-nomal-list">
+            <?php if(!empty($product_nomal)): ?>
+            <?php foreach($product_nomal as $product): ?>
+             <div class="row news-nomal">
+               <div>
+                    <a  href="<?php echo Asset('tintuc'); ?>/<?php echo $product->category_title; ?>/<?php echo $product->name; ?>-<?php echo $product->id; ?>">
+                    <h4><?php echo $product->title; ?></h4>
+                    </a>
+                </div>
+                  <div class="col-sm-5 image" id="id_image">
+                     <a href="<?php echo Asset('tintuc'); ?>/<?php echo $product->category_title; ?>/<?php echo $product->name; ?>-<?php echo $product->id; ?>" id="ai">
+                     <img src="<?php echo Asset('assets'); ?>/img/news/<?php echo $product->image; ?>" class="img-responsive" alt=""/>
+                     </a>
+                  </div>
+                  <div class="col-sm-7">
+                    <?php echo $product->content_summary; ?>
+
+                  </div>
+              </div><!--End .news-nomal-->
+              <?php endforeach; ?>
+              <?php endif; ?>
+      </div><!--Enf .news-nomal-list-->
+       <div class="col-sm-5 news-categoty-list">
+          <?php $i=0;?>
+          <?php foreach($products_category as $categorytitle => $category_title): ?>
+          <?php foreach($category_title as $categoryname => $category): ?>
+          <?php $i++; ?>
+          <?php if($i==2): ?>
+          <div class="row">
+            <div class="row news-categoty">
+               <ul class="list-unstyled news-categoty-top">
+                     <li>
+                        <a href="<?php echo Asset('nha-dat'); ?>" id="btn-news-categoty-top" class="btn btn-news-categoty-top btn-no-radius" >
+                        <span class="name-news-categoty">Rao vặt</span>
+                        </a>
+                     </li>
+              </ul>
+            </div>
+            <div class="row news-dot-list">
+                <ul class="">
+                    <?php foreach($product_dangtin as $product): ?>
+                     <li>
+                        <a href="<?php echo Asset($product->category_title); ?>/chitiet/<?php echo $product->name; ?>-<?php echo $product->id; ?>" id="news-dot" class="news-dot" >
+                        <span class="news-dot-title"><?php echo $product->title; ?> </span>
+                        </a>
+                     </li>
+                     <?php endforeach; ?>
+                </ul>
+            </div><!--End .news-dot-list-->
+          </div><!--End .row .Rao vat-->
+          <?php endif; ?>
+         <div class="row">
+            <div class="row news-categoty">
+               <ul class="list-unstyled news-categoty-top">
+                     <li>
+                        <a href="<?php echo Asset('tintuc'); ?>/<?php echo $categorytitle; ?>" id="btn-news-categoty-top" class="btn btn-news-categoty-top btn-no-radius" >
+                        <span class="name-news-categoty"><?php echo $categoryname; ?></span>
+                        </a>
+                     </li>
+                    <?php foreach($category as $key1 => $items): ?>
+                    <?php if($key1=='item'): ?>
+                    <?php foreach($items as $item): ?>
+                    <li>
+                        <a href="<?php echo Asset('tintuc'); ?>/<?php echo $categoryname; ?>/<?php echo $item['title']; ?>" id="btn-news-categoty" class="btn btn-news-categoty btn-no-radius" data-toggle="modal" data-target="#loginModal">
+                        <span class="title-news-categoty"><?php echo $item['name']; ?></span>
+                        </a>
+                     </li>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
+                  </ul>
+            </div>
+            <?php foreach($category as $key1 => $items): ?>
+            <?php if($key1=='product'): ?>
+            <?php foreach($items as $item): ?>
+            <div class="row news-content">
+               <div>
+                 <a href="<?php echo Asset('tintuc'); ?>/<?php echo $item->category_title; ?>/<?php echo $item->name; ?>-<?php echo $item->id; ?>" title="">
+                   <h4><?php echo $item->title; ?> </h4>
+                 </a>
+               </div>
+                  <div class="col-sm-5 " id="id_image">
+                     <a href="<?php echo Asset('tintuc'); ?>/<?php echo $item->category_title; ?>/<?php echo $item->name; ?>-<?php echo $item->id; ?>" id="ai">
+                     <img src="<?php echo Asset('assets'); ?>/img/news/<?php echo $item->image; ?>" class="img-responsive image-dot" alt=""/>
+                     </a>
+                  </div>
+                  <div class="col-sm-7">
+                    <?php echo $item->content_summary; ?>
+
+                  </div>
+            </div> <!--End .news-content-->
+            <?php endforeach; ?>
+            <?php endif; ?>
+            <?php endforeach; ?>
+            <div class="row news-dot-list">
+                <ul class="">
+                     <?php foreach($category as $key1 => $items): ?>
+                     <?php if($key1=='product_dot'): ?>
+                     <?php foreach($items as $item): ?>
+                     <li>
+                        <a href="<?php echo Asset('tintuc'); ?>/<?php echo $item->category_title; ?>/<?php echo $item->name; ?>-<?php echo $item->id; ?>" id="news-dot" class="news-dot" >
+                        <span class="news-dot-title"><?php echo $item->title; ?></span>
+                        </a>
+                     </li>
+                      <?php endforeach; ?>
+                      <?php endif; ?>
+                      <?php endforeach; ?>
+                </ul>
+            </div><!--End .news-dot-list-->
+         </div><!--End .row-->
+        <?php endforeach; ?>
+        <?php endforeach; ?>
+            
+         </div><!--End .News-category-list-->
+      </div><!--End .news-list-->
+      <!--End .main-content-->
+      <div class="col-sm-3 side-bar">
+         <?php echo $__env->make('category.side-bar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      </div>
+      <!--End .side-bar-->
+   </div>
+   <!--End .row-->
+</div>
+</div>
+<!--End .container-->
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('tintuc.basic', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

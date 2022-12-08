@@ -1,0 +1,42 @@
+<?php $__env->startSection('css'); ?>
+<?php echo HTML::style('assets/css/dangtin.css');; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+   <div class="row">
+      <div class="col-sm-9 content-detail">
+         <?php echo $__env->make('template.tienich', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <!--End .row-->
+         <?php echo $__env->make('category.links', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <!--end .links-->
+          <!--sort-->
+         <?php echo $__env->make('category.sort', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <!--End sort-->
+         <?php echo $__env->make('category.productlist', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('category.paginationcity', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.quangcaolamdep', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        
+      </div>
+      <!--End .main-content-->
+      <div class="col-sm-3 side-bar">
+         <?php echo $__env->make('category.search', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.tintucnoibat', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.batdongsanxemnhieunhat', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.quangcaofuland', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      
+         <?php echo $__env->make('template.flagcounter', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         
+      </div>
+      <!--End .side-bar-->
+   </div>
+   <!--End .row-->
+</div>
+<!--End .container-->
+
+<?php $__env->stopSection(); ?>
+
+  
+  
+<?php echo $__env->make('category.basic', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

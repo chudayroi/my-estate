@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-sm-2 facility">
+		<a href="http://xembaomoi.com/view/Thong-tin-thoi-tiet-4.html"><i class="glyphicon glyphicon-certificate"></i>Thời tiết</a>
+	</div>
+	<div class="col-sm-2 facility">
+		<a href="http://diaocdongduong.com/tienich/chungkhoan/mod_chungkhoan.php"><i class="glyphicon glyphicon-signal"></i> Chứng khoán</a>
+	</div>
+	<div class="col-sm-2 facility">
+		<a href="http://diaocdongduong.com/tienich/tygia/mod_ngoaite.php"><i class="glyphicon glyphicon-usd"> </i>Ngoại tệ</a>
+	</div>
+	<div class="col-sm-2 facility">
+		<a href="http://xembaomoi.com/view/Thong-tin-gia-vang-5.html"><i class="glyphicon glyphicon-star"></i> Già Vàng</a>
+	</div>
+	<div class="tienich-nav col-sm-2 facility">
+		<!--<a href="#"><i class="glyphicon glyphicon-link"></i> Link Web</a>-->
+		 <ul class="nav nav-pills">
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-link"></i> Link Web
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="http://alonhadat.com.vn" target="_blank">http://alonhadat.com.vn</a></li>
+              <li><a href="http://batdongsan.com.vn" target="_blank">http://batdongsan.com.vn</a></li>
+              <li><a href="http://dothi.net" target="_blank">http://dothi.net</a></li>
+              <li><a href="http://nhadat24h.net" target="_blank">http://nhadat24h.net</a></li>
+              <li><a href="http://phonhadat.net" target="_blank">http://phonhadat.net</a></li>
+              <li><a href="http://muabannhadat.com.vn" target="_blank">http://muabannhadat.com.vn</a></li>
+              <li><a href="http://nhaban.com" target="_blank">http://nhaban.com</a></li>
+              <li><a href="http://vnexpress.net"target="_blank">http://vnexpress.net</a></li>
+              <li><a href="https://daikynguyenvn.com" target="_blank">https://daikynguyenvn.com</a></li>
+              <li><a href="http://tinhhoa.net" target="_blank">http://tinhhoa.net</a></li>
+              <li><a href="http://www.24h.com.vn/" target="_blank">http://www.24h.com.vn</a></li>
+            </ul>
+          </li>
+          </ul>
+	</div>
+	<span class="process" >Loading</span>
+</div>
+<!--End .row-->

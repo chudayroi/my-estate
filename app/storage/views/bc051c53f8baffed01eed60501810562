@@ -1,0 +1,40 @@
+
+
+<div class="col-sm-12 duannoibat" id="product_row">
+   <div class='col-sm-12 category-duannoibat'>
+      <span class='span-duannoibat'>DỰ ÁN NỔI BẬT</span>
+   </div>
+   <?php if(!empty($projects)): ?>
+   <?php $i=0;?>
+   <?php foreach($projects as $product): ?>
+   <?php $i++;?>
+   <div class="col-sm-4 content-duannoibat " id="id_product_item<?php echo $i; ?>">
+      <div class="col-sm-12 item-duannoibat hvr-glow hvr-overline-from-center">
+         <div class=" image-duannoibat ">
+            <a href="<?php echo Asset($product['category_title']); ?>/<?php echo $product['city_title']; ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>" id="ai<?php echo $i; ?>">
+            <?php if(!empty($product['image'])): ?>
+            <img src="<?php echo asset('assets/img'); ?>/<?php echo $product['image']; ?>" class="img-responsive img-category-duannoibat" alt="<?php echo $product['name']; ?>"/>
+            <?php else: ?>
+            <img src="<?php echo asset('assets/img'); ?>/tinbatdongsan.png" class="img-responsive img-category" alt="<?php echo $product['name']; ?>"/>
+            <?php endif; ?>
+            </a>
+         </div>
+         <div class="info">
+            <p id='p<?php echo $i; ?>'><a href="<?php echo Asset($product['category_title']); ?>/<?php echo $product['city_title']; ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>"><span class='span-bold-red'><?php echo $product['title']; ?></span></a></p>
+         </div>
+         <div class="info">
+            <span class='span-bold'>
+            <?php echo $product['district']; ?>, <?php echo $product['city']; ?>
+
+            </span>
+         </div>
+      </div>
+   </div>
+   <!--end .product-item-->
+   <?php endforeach; ?>
+   <?php else: ?>
+   <div class="col-sm-12"><span style="color:red">Không tìm thấy!</span></div>
+   <?php endif; ?>
+</div>
+<!--End .row-->
+

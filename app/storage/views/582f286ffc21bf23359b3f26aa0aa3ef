@@ -1,0 +1,67 @@
+	<div class="row" id="product_row">
+	<?php if(!empty($list)): ?>
+	<?php $i=0;?>
+	<?php foreach($list as $product): ?>
+	<?php $i++;?>
+
+		<div class="col-sm-3 product-item" id="id_product_item<?php echo $i; ?>">
+			<div class="image" id="id_image<?php echo $i; ?>">
+				<a href="<?php echo Asset('nhadat/chitiet'); ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>" id="ai<?php echo $i; ?>">
+				<img src="<?php echo asset('assets/img'); ?>/<?php echo $product['image']; ?>" class="img-responsive" alt=""/>
+				</a>
+			</div>
+			<div class="title" id='title<?php echo $i; ?>'>
+				<p id='p<?php echo $i; ?>'><a href="<?php echo Asset('nhadat/chitiet'); ?>/<?php echo $product['name']; ?>-<?php echo $product['id']; ?>"><?php echo $product['title']; ?></a></p>
+			</div>
+			<div class="address" id="area<?php echo $i; ?>">
+				<div class="icon" id="area_icon<?php echo $i; ?>">
+					<i class="glyphicon glyphicon-th-large"></i>
+				</div>
+				<div class="info">
+					<?php echo $product['area']; ?>m<sup>2</sup>
+				</div>
+			</div>
+			<div class="address" id="amount<?php echo $i; ?>">
+				<div class="icon" id="amount_icon<?php echo $i; ?>">
+					<i class="glyphicon glyphicon-usd"></i>
+				</div>
+				<div class="info">
+					<?php 
+						if($product['amount_unit']==4) echo $product['amount']/1000;
+						else echo $product['amount'];
+					?>
+					 <?php echo $product['amount_unit']; ?>
+
+				</div>
+			</div>
+			
+			<div class="address" id="district<?php echo $i; ?>">
+				<div class="icon" id="district_icon<?php echo $i; ?>">
+					<i class="glyphicon glyphicon-map-marker"></i>
+				</div>
+				<div class="info">
+					<?php echo $product['district']; ?>, <?php echo $product['city']; ?>
+
+				</div>
+			</div>
+			<div class="address" id="startdate<?php echo $i; ?>">
+				<div class="icon" id="startdate_icon<?php echo $i; ?>">
+					<i class="glyphicon glyphicon-time"></i>
+				</div>
+				<div class="info">
+					<?php echo $product['startdate']; ?>
+
+				</div>
+			</div>
+			
+		</div>
+		<!--end .product-item-->
+		
+		<?php endforeach; ?>
+		<?php else: ?>
+		<div class="col-sm-12"><span style="color:red">Không tìm thấy!</span></div>
+		<?php endif; ?>
+
+	</div>
+
+	<!--End .row-->

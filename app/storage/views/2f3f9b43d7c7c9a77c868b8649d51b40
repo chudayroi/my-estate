@@ -1,0 +1,99 @@
+<?php $__env->startSection('css'); ?>
+<?php echo HTML::style('assets/css/dangtin.css');; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+      <?php echo $__env->make('tintuc.link-category', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    
+  <div class="col-sm-6">
+  <div class="row">
+      <div class="">
+    <?php echo $product->startdate; ?>
+
+  </div>
+   <div class="">
+    <h4 class="news-title"><?php echo $product->title; ?></h4>
+  </div>
+  <div class="">
+    <h5><?php echo $product->content_summary; ?></h5>
+  </div>
+  <div class="">
+    <?php echo $product->content; ?>
+
+  </div>
+  </div>
+      <?php echo $__env->make('template.quangcaovinpearl', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+  </div>
+  <div class="col-sm-3 news-most-viewed">
+    <div class="col-sm-12 most-viewed-top">
+      <ul class="list-unstyled most-viewed-title">
+        <li>
+          <a href="<?php echo Asset('nha-dat'); ?>" id="btn-news-categoty-top" class="btn btn-news-categoty-top btn-no-radius" >
+          <span class="viewed-title">Xem nhiều nhất</span>
+          </a>
+        </li>
+      </ul>
+    </div><!--End .most-viewed-top-->
+    <div class="col-sm-12 most-viewed-link">
+      <ul class="list-unstyled ">
+        <?php if(!empty($most_viewed)): ?>
+        <?php foreach($most_viewed as $product): ?>
+        <li class="viewed-link">
+          <a href="<?php echo Asset('tintuc'); ?>/<?php echo $product->category_title; ?>/<?php echo $product->name; ?>-<?php echo $product->id; ?>" id="btn-news-categoty-top" class="" >
+          <span class="viewed-name"><?php echo $product->title; ?>  </span>
+          </a>
+        </li>
+        <?php endforeach; ?>
+        <?php endif; ?>
+      <?php echo $__env->make('template.quangcaomicrosoft', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        
+      </ul>
+    </div><!--End .most-viewed-link-->
+    <div class="col-sm-12 most-viewed-top">
+      <ul class="list-unstyled most-viewed-title">
+        <li>
+          <a href="<?php echo Asset('nha-dat'); ?>" id="btn-news-categoty-top" class="btn btn-news-categoty-top btn-no-radius" >
+          <span class="viewed-title">Rao vặt</span>
+          </a>
+        </li>
+      </ul>
+    </div><!--End .most-viewed-top-->
+    <div class="col-sm-12 most-viewed-link">
+      <ul class="list-unstyled ">
+      <?php if(!empty($product_dangtin)): ?>
+      <?php foreach($product_dangtin as $product): ?>
+        <li class="viewed-link">
+          <a href="<?php echo Asset($product->category_title); ?>/<?php echo $product->name; ?>-<?php echo $product->id; ?>" id="btn-news-categoty-top" class="" >
+          <span class="viewed-name"><?php echo $product->title; ?></span>
+          </a>
+        </li>
+        <?php endforeach; ?>
+        <?php endif; ?>
+      <?php echo $__env->make('template.quangcaocitygarden', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+      </ul>
+    </div><!--End .most-viewed-link-->
+         
+
+  </div><!--End .news-most-viewed-->
+  
+   <div class="col-sm-3 side-bar">
+         <?php echo $__env->make('template.quangcaofuland', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+   
+      <?php echo $__env->make('category.search-sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.tintucnoibat', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.batdongsanxemnhieunhat', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.quangcaovnexpress', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('template.flagcounter', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         
+   </div>
+
+</div><!--End .container-->
+
+<!--End .news-->
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('tintuc.basic', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,4 @@
+<h1>Hi, <?php echo $firstname; ?> <?php echo $lastname; ?></h1>
+
+<p>Password mới: <?php echo $password; ?></p>
+<p>Bạn hãy dùng password mới để login và thay đổi password theo ý của bạn</p>

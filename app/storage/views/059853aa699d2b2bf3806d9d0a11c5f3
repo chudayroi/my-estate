@@ -1,0 +1,53 @@
+
+<div class='col-sm-6 kinhnghiem'>
+   <div class='col-sm-12 form-kinhnghiem hvr-glow'>
+      <div class='row category-kinhnghiem'>
+         <span class='span-kinhnghiem'>KINH NGHIỆM</span>
+      </div>
+      <div class='row content-kinhnghiem'>
+           <?php if(!empty($news_kinhnghiem)): ?>
+                  <?php $i=0;?>
+                  <?php foreach($news_kinhnghiem as $product): ?>
+                  <?php $i++;?>
+                  <?php if($i==1): ?>
+                     <div class="col-sm-3 image-kinhnghiem">
+                        <a href="<?php echo Asset('tintuc'); ?>/<?php echo $product->category_title; ?>/<?php echo $product->name; ?>-<?php echo $product->id; ?>" id="">
+                        <img src="<?php echo Asset('assets'); ?>/img/news/<?php echo $product->image; ?>" class="img-responsive img-category" alt=""/>
+                        </a>
+                     </div>
+                     <div class="col-sm-9 detail-kinhnghiem">
+                       
+                     <div class="row title-detail-kinhnghiem">
+                        <a href="<?php echo Asset('tintuc'); ?>/<?php echo $product->category_title; ?>/<?php echo $product->name; ?>-<?php echo $product->id; ?>"><span class='span-bold-blue'><?php echo $product['title']; ?></span></a>
+                     </div>
+                     <div class="row content-detail-kinhnghiem">
+                     <?php echo $product['content_summary']; ?>
+
+                     </div>
+                  <?php endif; ?>
+                 <?php endforeach; ?>
+                 <?php endif; ?>
+           
+            <div class="row other-kinhnghiem">
+               <ul class="list-unstyled ">
+                  <?php if(!empty($news_kinhnghiem)): ?>
+                  <?php $i=0;?>
+                  <?php foreach($news_kinhnghiem as $product): ?>
+                  <?php $i++;?>
+                   <?php if($i!=1): ?>
+                  <li class="link-other-kinhnghiem">
+                     <a href="<?php echo Asset('tintuc'); ?>/<?php echo $product->category_title; ?>/<?php echo $product->name; ?>-<?php echo $product->id; ?>" id="btn-news-categoty-top" class="" >
+                     <span class="viewed-name"><?php echo $product['title']; ?></span>
+                     </a>
+                  </li>
+                  <?php endif; ?>
+                 <?php endforeach; ?>
+                 <?php endif; ?>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!--End panel-->
+
